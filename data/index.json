@@ -6,22 +6,22 @@
       "path": "images/index/portada.jpg",
       "alt": "Tarimas de blocks de cemento."
     },
-    "actions": [
+    "buttons": [
       {
-        "is_primary_button": true,
+        "is_primary": true,
         "title": "Ver Materiales",
-        "link": "materiales"
+        "link": "products"
       },
       {
-        "is_primary_button": false,
+        "is_primary": false,
         "title": "Ver Servicios",
-        "link": "servicios"
+        "link": "services"
       }
     ]
   },
   "products": {
     "title": "Materiales",
-    "subtitle": "Encuentra las mejores marcas en materiales para construcción en el país."
+    "subtitle": "Encuentra las mejores marcas en materiales para construcción."
   },
   "services": {
     "title": "Servicios",
@@ -30,9 +30,9 @@
   "contact": {
     "title": "Contacto",
     "subtitle": {
-      "open": "Estamos abiertos, márcamos y dínos en que te podemos ayudar.",
+      "opens": "Estamos abiertos, márcamos y dínos en que te podemos ayudar.",
       "lunch": "Estamos en la comida, envíanos un mensaje y nos pondremos en contacto al regresar.",
-      "closed": "Estamos cerrados por el momento, envísanos un mensaje y nos pondremos en contacto lo antes posible."
+      "closes": "Estamos cerrados por el momento, envísanos un mensaje y nos pondremos en contacto lo antes posible."
     }
   }
 }
