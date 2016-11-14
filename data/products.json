@@ -99,10 +99,10 @@
           ]
         },
         {
-          "name": "Castillo",
+          "name": "Castillos",
           "brand": "Deacero",
           "image": {
-            "path": "images/products/aceros/castillo.jpg",
+            "path": "images/products/aceros/castillos.jpg",
             "alt": "Castillo de construcción de 15x15x4cm marca Deacero."
           },
           "info": [
@@ -171,7 +171,7 @@
           ]
         }
       ]
-    }
+    },
     {
       "name": "Blocks",
       "products": [
@@ -230,7 +230,7 @@
           ]
         }
       ]
-    }
+    },
     {
       "name": "Estucos",
       "products": [
@@ -289,7 +289,7 @@
           ]
         }
       ]
-    }
+    },
     {
       "name": "Arenas",
       "products": [
@@ -333,7 +333,7 @@
           "name": "Grava Triturada",
           "brand": "Abasa",
           "image": {
-            "path": "images/products/aceros/grava-triturada.jpg",
+            "path": "images/products/arenas/grava-triturada.jpg",
             "alt": "Grava Triturada del #2 marca Abasa."
           },
           "info": [
@@ -348,7 +348,7 @@
           ]
         }
       ]
-    }
+    },
     {
       "name": "Adhesivos",
       "products": [
@@ -407,7 +407,7 @@
           ]
         }
       ]
-    }
+    },
     {
       "name": "Impermeabilizantes",
       "products": [
@@ -484,7 +484,7 @@
           ]
         }
       ]
-    }
+    },
     {
       "name": "Yeso",
       "products": [
@@ -530,7 +530,7 @@
           ]
         }
       ]
-    }
+    },
     {
       "name": "Ferretería",
       "products": [
