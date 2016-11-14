@@ -10,14 +10,40 @@
     "zip_code": "87380",
     "url": "https://www.google.com.mx/maps/place/Materiales+Vallejo/@25.864819,-97.515182,15z/data=!4m5!3m4!1s0x0:0x646c317ec47c08db!8m2!3d25.864819!4d-97.515182"
   },
-  "hours": {
-    "open_weekday": 8,
-    "lunch_weekday": 13,
-    "afternoon_weekeday": 2.5,
-    "close_weekday": 6,
-    "open_saturday": 8,
-    "close_saturday": 2
+  "status": {
+    "opens": {
+      "title": "Sucursal Abierta",
+      "color": "bg-green"
+    },
+    "lunch": {
+      "title": "En la Comida",
+      "color": "bg-orange"
+    },
+    "closes": {
+      "title": "Sucursal Cerrada",
+      "color": "bg-red"
+    }
   },
+  "schedules": [
+    {
+      "is_full_day": true,
+      "title": "Entre semana",
+      "hours": {
+        "opens": 8,
+        "lunch": 13,
+        "afternoon": 14.5,
+        "closes": 18
+      }
+    },
+    {
+      "is_full_day": false,
+      "title": "Sábados",
+      "hours": {
+        "opens": 8,
+        "closes": 14
+      }
+    }
+  ],
   "holidays": [
     {
       "is_half_day": false,
