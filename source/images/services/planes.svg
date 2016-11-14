@@ -1,0 +1,24 @@
+<svg width="65" height="64" viewBox="0 0 65 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
+<title>Group</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-182 -38)" figma:type="canvas">
+<g id="Group" style="mix-blend-mode:normal;" figma:type="frame">
+<g id="Rectangle" style="mix-blend-mode:normal;" figma:type="rounded-rectangle">
+<mask id="mask0_outline_ins">
+<use xlink:href="#path0_fill" fill="white" transform="translate(182.529 38)"/>
+</mask>
+<g mask="url(#mask0_outline_ins)">
+<use xlink:href="#path1_stroke_2x" transform="translate(182.529 38)" fill="#E0E0E0" style="mix-blend-mode:normal;"/>
+</g>
+</g>
+<g id="Union" style="mix-blend-mode:normal;" figma:type="vector">
+<use xlink:href="#path2_fill" transform="matrix(0.707107 -0.707107 0.707107 0.707107 197.833 70.5652)" fill="#BDBDBD" style="mix-blend-mode:normal;"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 0 4C 0 1.79086 1.79086 0 4 0L 60 0C 62.2091 0 64 1.79086 64 4L 64 60C 64 62.2091 62.2091 64 60 64L 4 64C 1.79086 64 0 62.2091 0 60L 0 4Z"/>
+<path id="path1_stroke_2x" d="M 4 2L 60 2L 60 -2L 4 -2L 4 2ZM 62 4L 62 60L 66 60L 66 4L 62 4ZM 60 62L 4 62L 4 66L 60 66L 60 62ZM 2 60L 2 4L -2 4L -2 60L 2 60ZM 4 -2C 0.686292 -2 -2 0.686292 -2 4L 2 4C 2 2.89543 2.89543 2 4 2L 4 -2ZM 60 2C 61.1046 2 62 2.89543 62 4L 66 4C 66 0.686292 63.3137 -2 60 -2L 60 2ZM 62 60C 62 61.1046 61.1046 62 60 62L 60 66C 63.3137 66 66 63.3137 66 60L 62 60ZM 4 62C 2.89543 62 2 61.1046 2 60L -2 60C -2 63.3137 0.686292 66 4 66L 4 62Z"/>
+<path id="path2_fill" d="M 3.93521 1.9676C 3.93521 0.880926 3.05428 0 1.9676 0L 1.9676 0C 0.880926 0 0 0.880926 0 1.9676L 0 11.8056L 0 15.7408L 3.93521 15.7408L 29.5141 15.7408C 30.6007 15.7408 31.4817 14.8599 31.4817 13.7732L 31.4817 13.7732C 31.4817 12.6865 30.6007 11.8056 29.5141 11.8056L 3.93521 11.8056L 3.93521 1.9676Z"/>
+</defs>
+</svg>
