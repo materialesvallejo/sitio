@@ -1,0 +1,17 @@
+{
+  "title": "",
+  "subtitle": "Si estas batallando en encontrar lo que buscas envíanos un mensaje, estamos para ayudarte.",
+  "icon": "images/icons/error.svg",
+  "actions": [
+    {
+      "is_primary_button": true,
+      "title": "Ir a Inicio",
+      "link": "/"
+    },
+    {
+      "is_primary_button": false,
+      "title": "Enviar Mensaje",
+      "link": "mailto:"
+    }
+  ]
+}

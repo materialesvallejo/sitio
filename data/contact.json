@@ -1,0 +1,68 @@
+{
+  "number": "868 816 3393",
+  "email": "matvallejo@outlook.com",
+  "github": "https://github.com/materialesvallejo",
+  "address": {
+    "street": "Calle Francisco Villarreal #???",
+    "sector": "Colonia Buenavista",
+    "city": "Matamoros",
+    "state": "Tams.",
+    "zip_code": "87380",
+    "url": "https://www.google.com.mx/maps/place/Materiales+Vallejo/@25.864819,-97.515182,15z/data=!4m5!3m4!1s0x0:0x646c317ec47c08db!8m2!3d25.864819!4d-97.515182"
+  },
+  "hours": {
+    "open_weekday": 8,
+    "lunch_weekday": 13,
+    "afternoon_weekeday": 2.5,
+    "close_weekday": 6,
+    "open_saturday": 8,
+    "close_saturday": 2
+  },
+  "holidays": [
+    {
+      "is_half_day": false,
+      "title": "Revolución Mexicana",
+      "date": {
+        "day": 21,
+        "month": 11,
+        "year": 2016
+      }
+    },
+    {
+      "is_half_day": true,
+      "title": "Navidad",
+      "date": {
+        "day": 23,
+        "month": 12,
+        "year": 2016
+      }
+    },
+    {
+      "is_half_day": true,
+      "title": "Año Nuevo",
+      "date": {
+        "day": 30,
+        "month": 12,
+        "year": 2016
+      }
+    },
+    {
+      "is_half_day": false,
+      "title": "Año Nuevo",
+      "date": {
+        "day": 31,
+        "month": 12,
+        "year": 2016
+      }
+    },
+    {
+      "is_half_day": false,
+      "title": "Año Nuevo",
+      "date": {
+        "day": 1,
+        "month": 1,
+        "year": 2017
+      }
+    }
+  ]
+}

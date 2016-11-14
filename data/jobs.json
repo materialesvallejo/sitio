@@ -1,0 +1,76 @@
+{
+  "page": {
+    "title": "Trabaja con Nosotros",
+    "subtitle": "Buscamos a gente capacitada con ganas de trabajar que se una a nuestro equipo en nuestra oficina de Matamoros."
+  },
+  "banner": {
+    "title": "Trabaja con Nosotros",
+    "subtitle": "Hay varios puestos disponibles y estamos buscando a gente local que se una a nuestro equipo.",
+    "actions": {
+      "single": "Ver Detalles",
+      "multiple": "Ver Empleos"
+    }
+  },
+  "list": [
+    {
+      "is_published": false,
+      "title": "Secretaria",
+      "ad_subtitle": "Buscamos a una secretaria local con experiencia atendiendo clientes que se una a nuestro equipo.",
+      "sections": [
+        {
+          "title": "Introducción",
+          "content": "Somos una tienda de materiales para construcción de Matamoros, Tamaulipas y buscamos a una secretaria local que se una a nuestro equipo y esté dispuesta a escuchar y servir a nuestros clientes."
+        },
+        {
+          "title": "Detalles del Puesto",
+          "content": "Buscamos a una persona capaz de utilizar softwares de facturación y con capacidad e interés de aprender las bases de contabilidad. El trabajo require saber manejar correo electrónico, cotizaciones, cobrar y atender las llamadas de los clientes."
+        }
+      ]
+    },
+    {
+      "is_published": false,
+      "title": "Contadora",
+      "ad_subtitle": "Buscamos a una contadora con experiencia en llevar un sistema computarizado de contabilidad que se una a nuestro equipo.",
+      "sections": [
+        {
+          "title": "Introducción",
+          "content": "Somos una tienda de materiales para construcción de Matamoros, Tamaulipas que lo que mas nos importa es el cliente y buscamos una persona con experiencia en llevar un sistema computarizado de contabilidad relacionado con las ventas."
+        },
+        {
+          "title": "Detalles del Puesto",
+          "content": "Buscamos a una persona capaz de utilizar softwares de contabilidad y con capacidad e interés de aprender todas las áreas administrativas del negocio. El trabajo require saber manejar correo electrónico y un sistema de software contable."
+        }
+      ]
+    },
+    {
+      "is_published": false,
+      "title": "Chofer",
+      "ad_subtitle": "Buscamos a un chofer con experiencia en el manejo de camión que se una a nuestro equipo.",
+      "sections": [
+        {
+          "title": "Introducción",
+          "content": "Somos una tienda de materiales para construcción de Matamoros, Tamaulipas que lo que mas nos importa es el cliente y buscamos una persona con experiencia en el manejo de camión y con capacidad física de cargar y descargar materiales para construcción dentro del área de Matamoros."
+        },
+        {
+          "title": "Detalles del Puesto",
+          "content": "Buscamos a una persona con licencia de chofer, que sepa manejar cualquier tipo de camión y que se encargue del mantenimiento y cuidado del mismo."
+        }
+      ]
+    },
+    {
+      "is_published": false,
+      "title": "Asistente de Chofer",
+      "ad_subtitle": "Buscamos a un ayudante de chofer con capacidad de cargar y descargar materiales para construcción que se una nuestro equipo.",
+      "sections": [
+        {
+          "title": "Introducción",
+          "content": "Somos una tienda de materiales para construcción de Matamoros, Tamaulipas y buscamos una persona con capacidad física de cargar y descargar materiales para construcción."
+        },
+        {
+          "title": "Detalles del Puesto",
+          "content": "Buscamos a una persona dispuesta seguir órdenes de su jefe."
+        }
+      ]
+    }
+  ]
+}

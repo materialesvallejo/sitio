@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Entregas Gratuitas",
+    "icon": "images/services/entregas.svg",
+    "description": "Recibe tus materiales sin costo en tu domicilio o punto de venta en menos de 24 horas."
+  },
+  {
+    "name": "Planes de Pago",
+    "icon": "images/services/planes.svg",
+    "description": "Obtén planes de pago flexibles diseñados para complementar tus ventas e historial crediticio."
+  },
+  {
+    "name": "Pagos con Crédito",
+    "icon": "images/services/pagos.svg",
+    "description": "Compra tus materiales con tu tarjeta Coppel, Crédito Infonavit, Visa o Mastercard."
+  },
+  {
+    "name": "Asesoría de Materiales",
+    "icon": "images/services/asesoria.svg",
+    "description": "Recibe atención personalizada y define el tipo y cantidad de materiales que necesita tu obra."
+  }
+]

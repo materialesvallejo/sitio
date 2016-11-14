@@ -1,0 +1,38 @@
+{
+  "hero": {
+    "title": "Materiales para Tu Obra",
+    "subtitle": "Encuentra los materiales que necesitas y obtén servicios personalizados de un concesionario Construrama.",
+    "image": {
+      "path": "images/index/portada.jpg",
+      "alt": "Tarimas de blocks de cemento."
+    },
+    "actions": [
+      {
+        "is_primary_button": true,
+        "title": "Ver Materiales",
+        "link": "materiales"
+      },
+      {
+        "is_primary_button": false,
+        "title": "Ver Servicios",
+        "link": "servicios"
+      }
+    ]
+  },
+  "products": {
+    "title": "Materiales",
+    "subtitle": "Encuentra las mejores marcas en materiales para construcción en el país."
+  },
+  "services": {
+    "title": "Servicios",
+    "subtitle": "Recibe atención especializada para mayoristas, menudistas y constructoras."
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": {
+      "open": "Estamos abiertos, márcamos y dínos en que te podemos ayudar.",
+      "lunch": "Estamos en la comida, envíanos un mensaje y nos pondremos en contacto al regresar.",
+      "closed": "Estamos cerrados por el momento, envísanos un mensaje y nos pondremos en contacto lo antes posible."
+    }
+  }
+}
