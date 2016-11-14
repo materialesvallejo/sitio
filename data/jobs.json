@@ -6,7 +6,7 @@
   "banner": {
     "title": "Trabaja con Nosotros",
     "subtitle": "Hay varios puestos disponibles y estamos buscando a gente local que se una a nuestro equipo.",
-    "actions": {
+    "buttons": {
       "single": "Ver Detalles",
       "multiple": "Ver Empleos"
     }
