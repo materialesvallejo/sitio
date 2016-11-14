@@ -1,0 +1,88 @@
+<div class="mw18 center">
+  <a class="db cf mb1 pv1 no-underline" href="tel:<%= pretty_number data.contact.number %>">
+    <table class="w-100">
+      <tbody>
+        <tr>
+          <td class="tc w-20">
+            <%= image_tag "icons/telefono.svg", :class => "v-mid" %>
+          </td>
+          <td class="w-80">
+            <p class="ma0 lato fw4 f1 dark-gray"><%= data.contact.number %></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </a>
+  <a class="db cf mb1 pv1 no-underline" href="mailto:<%= data.contact.email %>">
+    <table class="w-100">
+      <tbody>
+        <tr>
+          <td class="tc w-20">
+            <%= image_tag "icons/email.svg", :class => "v-mid" %>
+          </td>
+          <td class="w-80">
+            <p class="ma0 lato fw4 f1 dark-gray"><%= data.contact.email %></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </a>
+  <a class="db cf mw20 center pv1">
+    <table class="w-100">
+      <tbody>
+        <tr>
+          <td class="tc v-top w-20">
+            <%= image_tag "icons/direccion.svg" %>
+          </td>
+          <td class="w-80">
+            <ul class="list ma0 pa0">
+              <li><p class="ma0 mb025 lato mb025 fw4 f1 dark-gray"><%= data.contact.address.street %></p></li>
+              <li><p class="ma0 mb025 lato mb025 fw4 f1 dark-gray"><%= data.contact.address.sector %></p></li>
+              <li><p class="ma0 lato fw4 f1 dark-gray"><%= data.contact.address.city %>, <%= data.contact.address.state %> <%= data.contact.address.zip_code %></p></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </a>
+  <a class="db cf mw20 center mb1 pv1">
+    <table class="w-100">
+      <tbody>
+        <tr>
+          <td class="tc v-top w-20">
+            <%= image_tag "icons/horarios.svg" %>
+          </td>
+          <td class="w-80">
+            <%# Office Schedules %>
+            <%# Config %>
+            <% sl = data.contact.schedules.length - 1 %>
+            <%# End %>
+            <% data.contact.schedules.each do |schedule| %>
+              <ul class="list ma0 pa0">
+                <li><p class="ma0 mb05 lato fw4 f1 gray"><%= schedule.title %></p></li>
+                <% if schedule.is_full_day %>
+                  <li>
+                    <p class="ma0 lato mb025 fw4 f1 dark-gray">
+                      <%= pretty_hour schedule.hours.opens %> — <%= pretty_hour schedule.hours.lunch %>
+                    </p>
+                  </li>
+                  <li>
+                    <p class="ma0 lato mb1 fw4 f1 dark-gray">
+                      <%= pretty_hour schedule.hours.afternoon %> — <%= pretty_hour schedule.hours.closes %>
+                    </p>
+                  </li>
+                <% else %>
+                  <li>
+                    <p class="ma0 lato mb025 fw4 f1 dark-gray">
+                      <%= pretty_hour schedule.hours.opens %> — <%= pretty_hour schedule.hours.closes %>
+                    </p>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </a>
+</div>

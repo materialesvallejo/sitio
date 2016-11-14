@@ -1,0 +1,20 @@
+<%# Footer %>
+<%# Config %>
+<% available_jobs = 0 %>
+<% data.jobs.list.each do |job| %>
+  <% if job.is_published %>
+    <% available_jobs = available_jobs + 1 %>
+  <% end %>
+<% end %>
+<%# End %>
+<footer>
+  <ul class="ma0 pa0 list">
+    <% data.footer.sections.each_with_index do |section, s| %>
+      <% if section.is_dynamic && available_jobs > 0 || section.is_dynamic != true %>
+        <li class="db dib-ns tc bt b--light-gray">
+          <a class="db pv15 lato gray link bg-almost-white" href="<%= section.url %>" target="<% if section.target %>_blank<% end %>"><%= section.title %></a>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</footer>
