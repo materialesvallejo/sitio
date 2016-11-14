@@ -1,36 +1,12 @@
-<svg width="60" height="40" viewBox="0 0 60 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
+<svg width="20" height="14" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
 <title>Icon</title>
 <desc>Created using Figma</desc>
-<g id="Canvas" transform="translate(-184 236)" figma:type="canvas">
-<g id="Icon" style="mix-blend-mode:normal;" figma:type="frame">
-<g id="Rectangle 5" style="mix-blend-mode:normal;" figma:type="rounded-rectangle">
-<mask id="mask0_outline_ins">
-<use xlink:href="#path0_fill" fill="white" transform="translate(184 -236)"/>
-</mask>
-<g mask="url(#mask0_outline_ins)">
-<use xlink:href="#path1_stroke_2x" transform="translate(184 -236)" fill="#BDBDBD" style="mix-blend-mode:normal;"/>
-</g>
-</g>
-<g id="Rectangle 5" style="mix-blend-mode:normal;" figma:type="rounded-rectangle">
-<use xlink:href="#path2_fill" transform="translate(191 -230)" fill="#FFFFFF" style="mix-blend-mode:normal;"/>
-</g>
-<g id="Rectangle 5" style="mix-blend-mode:normal;" figma:type="rounded-rectangle">
-<mask id="mask1_outline_ins">
-<use xlink:href="#path0_fill" fill="white" transform="translate(191 -230)"/>
-</mask>
-<g mask="url(#mask1_outline_ins)">
-<use xlink:href="#path1_stroke_2x" transform="translate(191 -230)" fill="#E0E0E0" style="mix-blend-mode:normal;"/>
-</g>
-</g>
-<g id="Rectangle 6" style="mix-blend-mode:normal;" figma:type="rounded-rectangle">
-<use xlink:href="#path3_fill" transform="translate(191 -222)" fill="#E0E0E0" style="mix-blend-mode:normal;"/>
-</g>
+<g id="Canvas" transform="translate(767 -981)" figma:type="canvas">
+<g id="Icon" style="mix-blend-mode:normal;" figma:type="vector">
+<use xlink:href="#path0_fill" transform="translate(-767 981)" fill="#BDBDBD" style="mix-blend-mode:normal;"/>
 </g>
 </g>
 <defs>
-<path id="path0_fill" d="M 0 2C 0 0.895431 0.895431 0 2 0L 51 0C 52.1046 0 53 0.895431 53 2L 53 32C 53 33.1046 52.1046 34 51 34L 2 34C 0.895431 34 0 33.1046 0 32L 0 2Z"/>
-<path id="path1_stroke_2x" d="M 2 2L 51 2L 51 -2L 2 -2L 2 2ZM 51 2L 51 32L 55 32L 55 2L 51 2ZM 51 32L 2 32L 2 36L 51 36L 51 32ZM 2 32L 2 2L -2 2L -2 32L 2 32ZM 2 -2C -0.209139 -2 -2 -0.209139 -2 2L 2 2L 2 2L 2 -2ZM 51 2L 51 2L 55 2C 55 -0.209139 53.2091 -2 51 -2L 51 2ZM 51 32L 51 36C 53.2091 36 55 34.2091 55 32L 51 32ZM 2 32L 2 32L -2 32C -2 34.2091 -0.209139 36 2 36L 2 32Z"/>
-<path id="path2_fill" d="M 0 2C 0 0.895431 0.895431 0 2 0L 51 0C 52.1046 0 53 0.895431 53 2L 53 31C 53 32.1046 52.1046 33 51 33L 2 33C 0.895431 33 0 32.1046 0 31L 0 2Z"/>
-<path id="path3_fill" d="M 0 0L 53 0L 53 3L 0 3L 0 0Z"/>
+<path id="path0_fill" fill-rule="evenodd" d="M 2 12L 2 13L 2 13C 2 13.5523 2.44772 14 3 14L 3 14L 19 14L 19 14C 19.5523 14 20 13.5523 20 13L 20 13L 20 7L 20 5L 20 3L 20 3C 20 2.44772 19.5523 2 19 2L 19 2L 18 2L 18 1L 18 1C 18 0.447716 17.5523 0 17 0L 17 0L 1 0L 1 0C 0.447716 0 0 0.447716 0 1L 0 1L 0 11L 0 11C 0 11.5523 0.447716 12 1 12L 1 12L 2 12ZM 18 3L 17 3L 4 3L 3 3L 3 4L 3 5L 19 5L 19 3L 18 3ZM 3 7L 3 11L 3 12L 3 13L 19 13L 19 7L 3 7ZM 17 2L 3 2L 3 2C 2.44772 2 2 2.44772 2 3L 2 3L 2 5L 2 7L 2 11L 1 11L 1 1L 17 1L 17 2Z"/>
 </defs>
 </svg>
