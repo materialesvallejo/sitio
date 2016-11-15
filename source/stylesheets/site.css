@@ -33,6 +33,7 @@ html { -webkit-font-smoothing: antialiased; }
 .ph1 { padding-right: 1rem; padding-left: 1rem; }
 .ph15 { padding-right: 1.5rem; padding-left: 1.5rem; }
 .ph3 { padding-right: 3rem; padding-left: 3rem; }
+.ptc { padding-top: 3.1525rem; }
 .pt15 { padding-top: 1.5rem; }
 .pr05 { padding-right: 0.5rem; }
 .pb2 { padding-bottom: 2rem; }
@@ -47,6 +48,7 @@ html { -webkit-font-smoothing: antialiased; }
 .f0875 { font-size: 0.875rem; }
 .f1 { font-size: 1rem; }
 .f15 { font-size: 1.5rem; }
+.f2 { font-size: 2rem; }
 /*
   LINE HEIGHT
 */
@@ -71,6 +73,8 @@ html { -webkit-font-smoothing: antialiased; }
 .bg-green { background-color: #27ae60; }
 .bg-red { background-color: #eb5757; }
 .bg-orange { background-color: #f2994a; }
+.bg-white-to-fade { background-image: linear-gradient(to right, white, transparent); }
+.bg-fade-to-white { background-image: linear-gradient(to right, transparent, white); }
 .b--light-gray { border-color: #e0e0e0; }
 .b--blue { border-color: #0080ff; }
 .b--green { border-color: #27ae60; }
@@ -81,6 +85,7 @@ html { -webkit-font-smoothing: antialiased; }
 */
 .w025 { width: 0.25rem; }
 .w1 { width: 2rem; }
+.w4 { width: 4rem; }
 .w8 { width: 8rem; }
 .w15 { width: 15rem; }
 /*
@@ -89,6 +94,7 @@ html { -webkit-font-smoothing: antialiased; }
 
 */
 .h025 { height: 0.25rem; }
+.h20 { height: 20rem; }
 /*
 
   MAX WIDTHS
@@ -125,13 +131,18 @@ html { -webkit-font-smoothing: antialiased; }
 
 */
 @media screen and (min-width: 30em) {
+  .f2-ns { font-size: 2rem; }
   .center-ns { margin-right: auto; margin-left: auto; }
   .mw18-ns { max-width: 18rem; }
-  .pv15-ns { padding-top: 1.5rem; padding-bottom: 1.5rem; } 
+  .mw28-ns { max-width: 28rem; }
+  .mr1-ns { margin-right: 1rem; }
+  .pv15-ns { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  .ptc { padding-top: 4.375rem; }
 }
 @media screen and (min-width: 30em) and (max-width: 60em) {
-
+  .ph2-m { padding-right: 2rem; padding-left: 2rem; }
 }
 @media screen and (min-width: 60em) {
-
+  .left--4 { left: -4rem; }
+  .right--4 { right: -4rem; }
 }
