@@ -1,0 +1,205 @@
+/*
+
+  Product Card Interaction
+
+*/
+//  Cache Product Card nodes
+const $cards = document.getElementsByClassName('js-card');
+//  Add an Event Listener for each Product Card
+for (var c = 0; c < $cards.length; c++) {
+  $cards[c].addEventListener('click', function(){
+    updateCard(this);
+  });
+}
+//  Dispatches Product Card styling-animation functions: rotate and fade
+function updateCard($card) {
+  //  Cache arrow node
+  var $arrow = $card.getElementsByClassName('js-rotate')[0];
+  //  Rotate arrow
+  rotate($arrow);
+  //  Cache image and detail nodes
+  var $image = $card.getElementsByClassName('js-fade')[0];
+  var $detail = $card.getElementsByClassName('js-fade')[1];
+  //  If image is visible, fade image and delay-fade detail
+  if (hasClass($image, 'is-visible')) {
+    fade($image);
+    setTimeout(function(){
+      fade($detail)
+    }, 225);
+  //  Else, fade detail and delay-fade image
+  } else {
+    fade($detail);
+    setTimeout(function(){
+      fade($image)
+    }, 225);
+  }
+}
+//  Toggle rotation classes
+function rotate($node) {
+  $node.classList.toggle('is-up');
+  $node.classList.toggle('is-down');
+}
+//  Toggle fade classes
+function fade($node) {
+  $node.classList.toggle('is-visible');
+  $node.classList.toggle('is-hidden');
+}
+//  Returns Boolean indicating presence of class in element
+function hasClass($node, cls) {
+  return (' ' + $node.className + ' ').indexOf(' ' + cls + ' ') > -1;
+}
+/*
+
+  Navigation Update
+
+*/
+//  Time Variables
+var today = new Date(),
+    currentYear = today.getFullYear(),
+    currentMonth = today.getMonth(),
+    currentDayOfWeek = today.getDay(),
+    currentDay = today.getDate(),
+    currentDate = "" + currentDay + "/" + (currentMonth + 1) + "/" + currentYear,
+    currentHour = today.getHours(),
+    currentMinutes = today.getMinutes(),
+    currentTime = currentHour + (currentMinutes / 59),
+//  Type of Day Variable
+    currentDayType;
+//  Half and Full Holiday List
+<%# Configuration %>
+<% half_holiday = [] %>
+<% full_holiday = [] %>
+<% data.contact.holidays.each do |holiday| %>
+  <% if holiday.is_half_day %>
+    <% half_holiday.push(holiday.date) %>
+  <% else %>
+    <% full_holiday.push(holiday.date) %>
+  <% end %>
+<% end %>
+<%# End %>
+const half_holidays = <%= half_holiday %>;
+const full_holidays = <%= full_holiday %>;
+//  Current Day Type & Time Variables
+var currentDayType, currentDayTime;
+//  Sets type of current day
+function setCurrentDayType() {
+  //  Half Holiday setter
+  for (var h = 0; h < half_holidays.length; h++) {
+    if (half_holidays[h] === currentDate) {
+      currentDayType = "Half Day";
+      return currentDayType;
+    }
+  }
+  //  Full Holiday setter
+  for (var h = 0; h < full_holidays.length; h++) {
+    if (full_holidays[h] === currentDate) {
+      currentDayType = "Rest Day";
+      return currentDayType;
+    }
+  }
+  //  Work Day setter
+  if ((1 <= currentDayOfWeek) && (currentDayOfWeek <= 5)) {
+    currentDayType = "Full Day";
+    return currentDayType;
+  }
+  //  Half Day setter
+  else if (currentDayOfWeek === 6) {
+    currentDayType = "Half Day";
+    return currentDayType;
+  }
+  //  Rest Day setter
+  else {
+    currentDayType = "Rest Day";
+    return currentDayType;
+  }
+}
+//  Updates current day time
+<%# Config %>
+<% weekdays = data.contact.schedules[0].hours %>
+<% saturdays = data.contact.schedules[1].hours %>
+<%# End %>
+function setCurrentDayTime() {
+  var status = "Closed";
+  //  Hours of Operation
+  const fullDayOpen = (((<%= weekdays.opens %> <= currentTime) && (currentTime < <%= weekdays.lunch %>)) || ((<%= weekdays.afternoon %> <= currentTime) && (currentTime < <%= weekdays.closes %>)));
+  const fullDayLunch = ((<%= weekdays.lunch %> <= currentTime) && (currentTime < <%= weekdays.afternoon %>))
+  const halfDayOpen = ((<%= saturdays.opens %> <= currentTime) && (currentTime < <%= saturdays.closes %>));
+  //  Cache Hours of Operation values
+  const statuses = [fullDayOpen, fullDayLunch, halfDayOpen];
+  //  Status index
+  var status_index = 3;
+  //  Status value checker
+  for (var s = 0; s < statuses.length; s++) {
+    if (statuses[s]) {
+      status_index = s;
+    }
+  }
+  //  Status setter
+  switch(status_index) {
+    case 0:
+      status = "Open";
+      break;
+    case 1:
+      status = "Lunch";
+      break;
+    case 2:
+      status = "Closed";
+      break;
+    default:
+      status = "Closed";
+  }
+  return status;
+}
+//  Updates dynamic content first based on office status, then based on day type.
+function updateDynamicContent(officeStatus, dayType) {
+  //  Set dynamic content to "Closed"
+  if (officeStatus === "Closed") {
+    navStatus("Closed");
+    navAction("Closed");
+  }
+  //  Set dynamic content to "Open"
+  if (officeStatus === "Open" && ((dayType ===  "Full Day") || (dayType === "Half Day"))) {
+    //  DELETE
+    navStatus("Open");
+    //  DELETE
+    navAction("Open");
+  }
+  //  Set dynamic content to "Lunch"
+  if (officeStatus === "Lunch" && dayType === "Full Day") {
+    navStatus("Lunch");
+    navAction("Lunch");
+  }
+}
+//  Updates nav status
+function navStatus(status) {
+  //  Cache status icon and text
+  const $status = document.getElementById('status');
+  const $text = document.getElementById('status-text');
+  //  Set status to "Closed"
+  if (status === "Closed") {
+    $status.classList.toggle('bg-green');
+    $status.classList.toggle('bg-red');
+    $text.innerHTML = "<%= data.contact.status.closes.title %>";
+  }
+  //  Set status to "Lunch"
+  if (status === "Lunch") {
+    $status.classList.toggle('bg-green');
+    $status.classList.toggle('bg-orange');
+    $text.innerHTML = "<%= data.contact.status.lunch.title %>";
+  }
+}
+//  Updates nav action button
+function navAction(status) {
+  //  Cache action button
+  const $button = document.getElementById('nav-action');
+  //  Set button to "Closed" / "Lunch" status
+  if (status === "Closed" || status === "Lunch") {
+    $button.classList.toggle('b--green');
+    $button.classList.toggle('b--blue');
+    $button.classList.toggle('green');
+    $button.classList.toggle('blue');
+    $button.href = "<%= data.contact.button.closes.href %><%= data.contact.email %>";
+    $button.innerHTML = "<%= data.contact.button.closes.title %>";
+  }
+}
+updateDynamicContent(setCurrentDayTime(), setCurrentDayType());
