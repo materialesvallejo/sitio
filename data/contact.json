@@ -10,6 +10,16 @@
     "zip_code": "87380",
     "url": "https://www.google.com.mx/maps/place/Materiales+Vallejo/@25.864819,-97.515182,15z/data=!4m5!3m4!1s0x0:0x646c317ec47c08db!8m2!3d25.864819!4d-97.515182"
   },
+  "button": {
+    "opens": {
+      "title": "Marcar a Oficina",
+      "href": "tel:"
+    },
+    "closes": {
+      "title": "Enviar Correo",
+      "href": "mailto:"
+    }
+  },
   "status": {
     "opens": {
       "title": "Sucursal Abierta",
@@ -48,47 +58,27 @@
     {
       "is_half_day": false,
       "title": "Revolución Mexicana",
-      "date": {
-        "day": 21,
-        "month": 11,
-        "year": 2016
-      }
+      "date": "21/11/2016"
     },
     {
       "is_half_day": true,
       "title": "Navidad",
-      "date": {
-        "day": 23,
-        "month": 12,
-        "year": 2016
-      }
+      "date": "23/12/2016"
     },
     {
       "is_half_day": true,
       "title": "Año Nuevo",
-      "date": {
-        "day": 30,
-        "month": 12,
-        "year": 2016
-      }
+      "date": "30/12/2016"
     },
     {
       "is_half_day": false,
       "title": "Año Nuevo",
-      "date": {
-        "day": 31,
-        "month": 12,
-        "year": 2016
-      }
+      "date": "31/12/2016"
     },
     {
       "is_half_day": false,
       "title": "Año Nuevo",
-      "date": {
-        "day": 1,
-        "month": 1,
-        "year": 2017
-      }
+      "date": "1/1/2017"
     }
   ]
 }
