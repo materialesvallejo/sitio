@@ -140,10 +140,15 @@ html { -webkit-font-smoothing: antialiased; }
   .mw645-ns { max-width: 64.5rem; }
   .mr1-ns { margin-right: 1rem; }
   .mb2-ns { margin-bottom: 2rem; }
+  .pv0-ns { padding-top: 0rem; padding-bottom: 0rem; }
+  .pv1-ns { padding-top: 1rem; padding-bottom: 1rem; }
   .pv15-ns { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  .ph1-ns { padding-right: 1rem; padding-left: 1rem; }
   .ptc-ns { padding-top: 4.375rem; }
   .pr2-ns { padding-right: 2rem; }
   .pl2-ns { padding-left: 2rem; }
+  .bg-almost-white-ns { background-color: #fafafa; }
+  .b--light-gray-ns { border-color: #e0e0e0; }
 }
 @media screen and (min-width: 30em) and (max-width: 60em) {
   .ph2-m { padding-right: 2rem; padding-left: 2rem; }
