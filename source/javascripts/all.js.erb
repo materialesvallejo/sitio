@@ -1,10 +1,64 @@
 /*
 
-  Product Card Interaction
+  Product Navigation
 
 */
 //  Cache Product Card nodes
 const $cards = document.getElementsByClassName('js-card');
+for (var c = 0; c < $cards.length; c++) {
+  console.log("Product " + c + ": " + $cards[c].offsetLeft);
+}
+//
+<%# Config %>
+<% categories = [] %>
+<% data.products.categories.each do |category| %>
+  <% categories.push(category.name.downcase) %>
+<% end %>
+<%# End %>
+const categories = <%= categories %>;
+//
+var Categories = new Object();
+for (var c = 0; c < categories.length; c++) {
+  for (var i = 0; i < $cards.length; i++) {
+    if ($cards[i].dataset.category === categories[c]) {
+      Categories[categories[c]] = $cards[i].offsetLeft;
+      break;
+    }
+  }
+}
+//
+const $categories = document.getElementsByClassName('js-category');
+for (var c = 0; c < $categories.length; c++) {
+  $categories[c].addEventListener('click', function(){
+    clearNav();
+    activateNav(this);
+    scrollTo(this.innerHTML);
+  });
+}
+//
+function clearNav() {
+  for (var c = 0; c < $categories.length; c++) {
+    $categories[c].classList.remove('blue');
+    $categories[c].classList.add('gray');
+  }
+}
+//
+function activateNav($element) {
+  $element.classList.add('blue');
+}
+//  Cache Product Card carrusel
+const $carrusel = document.getElementById('carrusel');
+//
+function scrollTo(category) {
+  const xValue = Categories[category.toLowerCase()];
+  console.log(xValue);
+  $carrusel.scrollLeft = xValue - 24;
+}
+/*
+
+  Product Card Interaction
+
+*/
 //  Add an Event Listener for each Product Card
 for (var c = 0; c < $cards.length; c++) {
   $cards[c].addEventListener('click', function(){
