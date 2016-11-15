@@ -133,11 +133,17 @@ html { -webkit-font-smoothing: antialiased; }
 @media screen and (min-width: 30em) {
   .f2-ns { font-size: 2rem; }
   .center-ns { margin-right: auto; margin-left: auto; }
+  .w-sixth-ns { width: calc( 100% / 6 ); }
   .mw18-ns { max-width: 18rem; }
   .mw28-ns { max-width: 28rem; }
+  .mw425-ns { max-width: 42.5rem; }
+  .mw645-ns { max-width: 64.5rem; }
   .mr1-ns { margin-right: 1rem; }
+  .mb2-ns { margin-bottom: 2rem; }
   .pv15-ns { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-  .ptc { padding-top: 4.375rem; }
+  .ptc-ns { padding-top: 4.375rem; }
+  .pr2-ns { padding-right: 2rem; }
+  .pl2-ns { padding-left: 2rem; }
 }
 @media screen and (min-width: 30em) and (max-width: 60em) {
   .ph2-m { padding-right: 2rem; padding-left: 2rem; }
