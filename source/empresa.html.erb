@@ -1,0 +1,37 @@
+---
+title: Acerca de Materiales Vallejo
+layout: main
+---
+<%# Content %>
+<%# Config %>
+<% about = data.about %>
+<%# End %>
+<main class="ptc">
+  <div class="mw8-l center mt4-m">
+    <div class="cf">
+      <div class="fl-ns w-10-m w-20-l" style="min-height: 1px;"></div>
+      <div class="fl-ns w-80-m w-60-l">
+        <%# Hero %>
+        <article class="ph2-m ph0-l mt4-ns mb2 mb4-ns">
+          <div class="aspect-ratio aspect-ratio--1x1 aspect-ratio aspect-ratio--16x9-ns">
+            <div class="aspect-ratio--object cover bg-center" title="<%= about.hero.image.alt %>" style="background-image: url(<%= about.hero.image.path %>)"></div>
+          </div>
+        </article>
+        <%# Details %>
+        <section class="ph15 ph2-m ph0-l">
+          <header class="mb2">
+            <h1 class="ma0 mb05 lato f15 fw4 dark-gray"><%= about.title %></h1>
+            <h2 class="ma0 lato f1 fw4 gray"><%= about.subtitle %></h2>
+          </header>
+          <%# Config %>
+          <% dl = about.details.length - 1 %>
+          <%# End %>
+          <% about.details.each_with_index do |detail, d| %>
+            <p class="ma0 <% if d != dl %>mb2<% else %>mb4<% end %> lato dark-gray lh15"><%= detail %></p>
+          <% end %>
+        </section>
+      </div>
+      <div class="fl-ns w-10-m w-20-l" style="min-height: 1px;"></div>
+    </div>
+  </div>
+</main>
