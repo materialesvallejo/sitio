@@ -7,14 +7,21 @@
   <% end %>
 <% end %>
 <%# End %>
-<footer>
-  <ul class="ma0 pa0 list">
-    <% data.footer.sections.each_with_index do |section, s| %>
-      <% if section.is_dynamic && available_jobs > 0 || section.is_dynamic != true %>
-        <li class="db dib-ns tc bt b--light-gray">
-          <a class="db pv15 lato gray link bg-almost-white" href="<%= section.url %>" target="<% if section.target %>_blank<% end %>"><%= section.title %></a>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
+<footer class="pv1-ns ph2-m bg-almost-white-ns bt-ns b--light-gray-ns">
+  <div class="mw645 center cf">
+    <div class="dn db-ns fl-ns w-30-ns">
+      <p class="ma0 lato gray fw4">Materiales Vallejo © 2016</p>
+    </div>
+    <div class="dn db-ns fl-ns w-70-ns">
+      <ul class="ma0 pa0 list tr-ns">
+        <% data.footer.sections.each_with_index do |section, s| %>
+          <% if section.is_dynamic && available_jobs > 0 || section.is_dynamic != true %>
+            <li class="db dib-ns tc bt b--light-gray bt-0-ns">
+              <a class="db pv15 pv0-ns pl2-ns lato dark-gray link bg-almost-white" href="<%= section.url %>" target="<% if section.target %>_blank<% end %>"><%= section.title %></a>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </footer>
