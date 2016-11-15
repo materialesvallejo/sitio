@@ -3,24 +3,24 @@ title: Materiales para Construcción — Materiales Vallejo
 layout: main
 ---
 <%# Content %>
-<main>
+<main class="ptc">
   <%# Hero %>
   <%# Config %>
   <% hero = data.index.hero %>
   <%# End %>
-  <section class="pv8 ph15 cover bg-center" style="background-image: url(<%= hero.image.path %>)">
-    <header class="mw18 center lato tc white">
-      <h1 class="ma0 mb1 f15 fw4 lh01"><%= hero.title %></h1>
+  <section class="pv8 ph15 ph2-m cover bg-center" style="background-image: url(<%= hero.image.path %>)">
+    <header class="mw18 mw28-ns center lato tc white">
+      <h1 class="ma0 mb1 f15 f2-ns fw4 lh01"><%= hero.title %></h1>
       <p class="ma0 mb2 f1 fw4 lh15"><%= hero.subtitle %></p>
     </header>
     <div class="tc">
       <% hero.buttons.each_with_index do |button, b| %>
         <% if button.is_primary %>
-          <a class="db center <% if b == 0 %>mb1<% end %> w8 pv05 lato white fw7 no-underline tc bg-blue br0125" href="#<%= button.link %>">
+          <a class="db dib-ns center w8 <% if b == 0 %>mb1<% end %> mb0-ns pv05 mr1-ns lato white fw7 no-underline tc bg-blue br0125" href="#<%= button.link %>">
             <%= button.title %>
           </a>
         <% else %>
-          <a class="db center <% if b == 0 %>mb1<% end %> w8 pv05 lato white fw7 no-underline tc ba b--white br0125" href="#<%= button.link %>"><%= button.title %></a>
+          <a class="db dib-ns center <% if b == 0 %>mb1<% end %> w8 pv05 lato white fw7 no-underline tc ba b--white br0125" href="#<%= button.link %>"><%= button.title %></a>
         <% end %>
       <% end %>
     </div>
@@ -38,61 +38,65 @@ layout: main
   <% pc = 0 %>
   <%# End %>
   <section id="products" class="pv3 bb b--light-gray">
-    <header class="mw18 center lato tc ph15 mb3">
+    <header class="mw18 mw28-ns center lato tc ph15 ph2-m mb3">
       <h1 class="ma0 mb1 f15 fw4 lh01 dark-gray"><%= data.index.products.title %></h1>
       <p class="ma0 f1 fw4 lh15 gray"><%= data.index.products.subtitle %></p>
     </header>
     <nav>
-      <ul class="ma0 ph15 pb2 overflow-x-auto overflow-scrolling scrollbar-dn nowrap list">
+      <ul class="mw645 center ma0 ph15 ph2-m pb2 overflow-x-auto overflow-scrolling scrollbar-dn nowrap list">
         <% categories.each_with_index do |category, c| %>
-          <li class="dib"><a class="lato <% if c === 0 %>blue<% else %>gray<% end %> <% if c != cl %>mr2<% end %>"><%= category.name %></a></li>
+          <li class="dib"><p class="js-category ma0 lato <% if c === 0 %>blue<% else %>gray<% end %> <% if c != cl %>mr2<% end %>"><%= category.name %></p></li>
         <% end %>
       </ul>
     </nav>
-    <div class="ph15 overflow-x-auto overflow-scrolling scrollbar-dn nowrap">
-      <% categories.each do |category| %>
-        <% category.products.each do |product| %>
-          <% pc = pc + 1 %>
-          <article class="js-card dib w15 h20 <% if pc != pl %>mr2<% end %> bg-white ba b--light-gray br0125">
-            <header class="relative mh15 mt15 pb2">
-              <%= image_tag "icons/flecha.svg", :class => "js-rotate is-down absolute top-1 right-0" %>
-              <h2 class="ma0 mb05 lato f1 fw4 silver"><%= product.brand %></h2>
-              <h1 class="js-test ma0 lato f1 fw4 dark-gray"><%= product.name %></h1>
-            </header>
-            <div class="relative">
-              <div class="js-fade is-visible absolute top-0 o-1">
-                <img class="pb2" src="<%= product.image.path %>">
+    <div class="relative mw645 center overflow-hidden-l">
+      <div class="dn db-l absolute left-0 z-1 w4 h20 bg-white-to-fade"></div>
+      <div class="dn db-l absolute right-0 z-1 w4 h20 bg-fade-to-white"></div>
+      <div id="carrusel" class="ph15 ph2-m overflow-x-auto overflow-scrolling scrollbar-dn nowrap">
+        <% categories.each do |category| %>
+          <% category.products.each do |product| %>
+            <% pc = pc + 1 %>
+            <article class="js-card dib w15 h20 <% if pc != pl %>mr2<% end %> bg-white ba b--light-gray br0125 pointer" data-category="<%= category.name.downcase %>">
+              <header class="relative mh15 mt15 pb2">
+                <%= image_tag "icons/flecha.svg", :class => "js-rotate is-down absolute top-1 right-0" %>
+                <h2 class="ma0 mb05 lato f1 fw4 silver"><%= product.brand %></h2>
+                <h1 class="js-test ma0 lato f1 fw4 dark-gray"><%= product.name %></h1>
+              </header>
+              <div class="relative">
+                <div class="js-fade is-visible absolute top-0 o-1">
+                  <img class="pb2" src="<%= product.image.path %>">
+                </div>
+                <div class="js-fade is-hidden absolute top-0 ws-normal">
+                  <ul class="ma0 pa0 mh15 mb15 list">
+                    <%# Product Info %>
+                    <%# Config %>
+                    <% sl = product.info.length - 1 %>
+                    <%# End %>
+                    <% product.info.each_with_index do |section, s| %>
+                      <li>
+                        <p class="ma0 mb05 lato gray"><%= section.title %></p>
+                      </li>
+                      <li class="<% if s != sl %>mb1<% end %>">
+                        <ul class="ma0 pa0 list">
+                          <%# Info Details %>
+                          <%# Config %>
+                          <% dl = section.details.length - 1 %>
+                          <%# End %>
+                          <% section.details.each_with_index do |point, i|  %>
+                            <li class="dib <% if i != dl %>mr1<% end %> <% if i %><% end %>">
+                              <p class="ma0 lato dark-gray"><%= point %></p>
+                            </li>
+                          <% end %>
+                        </ul>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
               </div>
-              <div class="js-fade is-hidden absolute top-0 ws-normal">
-                <ul class="ma0 pa0 mh15 mb15 list">
-                  <%# Product Info %>
-                  <%# Config %>
-                  <% sl = product.info.length - 1 %>
-                  <%# End %>
-                  <% product.info.each_with_index do |section, s| %>
-                    <li>
-                      <p class="ma0 mb05 lato gray"><%= section.title %></p>
-                    </li>
-                    <li class="<% if s != sl %>mb1<% end %>">
-                      <ul class="ma0 pa0 list">
-                        <%# Info Details %>
-                        <%# Config %>
-                        <% dl = section.details.length - 1 %>
-                        <%# End %>
-                        <% section.details.each_with_index do |point, i|  %>
-                          <li class="dib <% if i != dl %>mr1<% end %> <% if i %><% end %>">
-                            <p class="ma0 lato dark-gray"><%= point %></p>
-                          </li>
-                        <% end %>
-                      </ul>
-                    </li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-          </article>
+            </article>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </section>
   <%# Services %>
