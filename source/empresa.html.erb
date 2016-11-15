@@ -27,8 +27,35 @@ layout: main
           <% dl = about.details.length - 1 %>
           <%# End %>
           <% about.details.each_with_index do |detail, d| %>
-            <p class="ma0 <% if d != dl %>mb2<% else %>mb4<% end %> lato dark-gray lh15"><%= detail %></p>
+            <p class="ma0 lato dark-gray lh15 <% if d === dl %>mb4<% else %>mb2<% end %>">
+              <%= detail %>
+              <% if d === dl %>
+              <span><%= about.contact.opens %></span>
+              <% end %>
+            </p>
           <% end %>
+          <div class="cf mb4">
+            <div class="fl-ns w-50-ns mb2 mb0-ns">
+              <div class="mb2">
+                <h2 class="ma0 mb05 fw4 f1 lato dark-gray"><%= data.about.contact.phone_title %></h2>
+                <a class="lato blue no-underline" href="tel:<%= pretty_number data.contact.number %>" target=""><%= data.contact.number %></a>
+              </div>
+              <div>
+                <h2 class="ma0 mb05 fw4 f1 lato dark-gray"><%= data.about.contact.email_title %></h2>
+                <a class="lato blue no-underline" href="mailto:<%= data.contact.email %>" target=""><%= data.contact.email %></a>
+              </div>
+            </div>
+            <div class="fl-ns w-50-ns">
+              <h2 class="ma0 mb05 fw4 f1 lato dark-gray"><%= data.about.contact.address_title %></h2>
+              <a class="lato blue no-underline" href="<%= data.contact.address.url %>" target="_blank">
+                <ul class="list ma0 pa0">
+                  <li><p class="ma0 mb025 lato mb025 fw4 f1"><%= data.contact.address.street %></p></li>
+                  <li><p class="ma0 mb025 lato mb025 fw4 f1"><%= data.contact.address.sector %></p></li>
+                  <li><p class="ma0 lato fw4 f1"><%= data.contact.address.city %>, <%= data.contact.address.state %> <%= data.contact.address.zip_code %></p></li>
+                </ul>
+              </a>
+            </div>
+          </div>
         </section>
       </div>
       <div class="fl-ns w-10-m w-20-l" style="min-height: 1px;"></div>
