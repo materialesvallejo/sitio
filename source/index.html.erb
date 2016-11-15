@@ -103,20 +103,26 @@ layout: main
   <%# Config %>
   <% sl = data.services.length - 1 %>
   <%# End %>
-  <section id="services" class="pv3 ph15 bb b--light-gray">
+  <section id="services" class="pv3 ph15 ph2-m ph0-l bb b--light-gray">
     <header class="mw18 center lato tc mb3">
       <h1 class="ma0 mb1 f15 fw4 lh01 dark-gray"><%= data.index.services.title %></h1>
       <p class="ma0 f1 fw4 lh15 gray"><%= data.index.services.subtitle %></p>
     </header>
-    <ul class="ma0 pa0 list mw18 center">
+    <div class="mw18 mw425-ns center ma0 pa0 cf">
       <% data.services.each_with_index do |service, s| %>
-        <li class="<% if s != sl %>mb2<% end %>">
-          <%= image_tag "#{ service.icon.path }", :class => "ma0 pr05", :alt => "#{ service.icon.alt }" %>
-          <h3 class="dib ma0 mb05 lato f1 fw4 dark-gray"><%= service.name %></h3>
-          <p class="ma0 lato f1 fw4 lh15 gray"><%= service.description %></p>
-        </li>
+        <% if s === 0 || s === ((sl / 2).floor - 1) %>
+        <div class="cf <% if s === 0 %>mb2-ns<% end %>">
+        <% end %>
+          <div class="fl-ns w-50-ns <% if s != sl %>mb2<% end %> <% if s % 2 === 0 %>pr2-ns<% else %><% end %>">
+            <%= image_tag "#{ service.icon.path }", :class => "db ma0", :alt => "#{ service.icon.alt }", :style => "width: 48px; height: 48px;" %>
+            <h3 class="dib ma0 mb05 lato f1 fw4 dark-gray"><%= service.name %></h3>
+            <p class="ma0 lato f1 fw4 lh15 gray"><%= service.description %></p>
+          </div>
+        <% if s === (sl / 2) || s === sl %>
+        </div>
+        <% end %>
       <% end %>
-    </ul>
+    </div>
   </section>
   <%# Contact %>
   <section class="pv3 ph15">
