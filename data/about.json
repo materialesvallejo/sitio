@@ -12,11 +12,14 @@
 
     "Nuestro propósito es ofrecerte las mejores marcas en materiales para construcción a los mejores precios. Servimos desde a particulares trabajando en obras personales hasta obras de gobierno desarrollando comunidades enteras. También servimos a una red de materialistas y ferreterías en la ciudad y nos encantaría formaras parte de ella. Ofrecemos planes de crédito flexibles, precios de fábrica, y envíos gratuitos el mismo día.",
 
-    "Nos encantaría ayudarte y nos gustaría saber como podemos ayudarte a suministrar las necesidades de tu negocio o siguiente obra."
+    "Nos encantaría ayudarte a suministrar las necesidades de tu negocio o siguiente obra."
   ],
   "contact": {
-    "open": "Estamos cerrados por el momento, pero envíanos un mensaje y nos pondremos en contacto lo antes posible.",
+    "phone_title": "Marcar a oficina",
+    "address_title": "Visitar oficina",
+    "email_title": "Enviar correo",
+    "opens": "Estamos abiertos, márcanos o visítanos.",
     "lunch": "Salimos a la comida, pero envíanos un mensaje y nos pondremos en contacto esta tarde.",
-    "closed": "Estamos abiertos, márcanos o visítanos."
+    "closes": "Estamos cerrados por el momento, pero envíanos un mensaje y nos pondremos en contacto lo antes posible."
   }
 }
