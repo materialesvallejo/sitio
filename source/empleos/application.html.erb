@@ -2,3 +2,37 @@
 title: Job Application — Test
 layout: main
 ---
+<%# Config %>
+<% job = locals[:job] %>
+<%# End %>
+<main class="mw645 center ph15 ph2-m ph0-l ptc cf">
+  <div class="fl-ns w-10-m w-20-l" style="min-height: 1px;"></div>
+  <div class="fl-ns w-80-m w-60-l">
+    <article class="mv4">
+      <header class="mb4">
+        <h1 class="ma0 mb1 lato dark-gray f15 fw4"><%= job.title %></h1>
+        <p class="ma0 lato gray f1 fw4 lh15"><%= data.jobs.application %></p>
+      </header>
+      <%# Test %>
+      <%# Will first style and create form fields, then I'll create a dynamic .json template %>
+      <form action="" method="post">
+        <section class="debug">
+          <h3 class="ma0 mb1 lato dark-gray f1 fw4">Datos Personales</h3>
+          <div>
+            <label class="db ma0 mb05 lato f075 gray" for="name">Nombre completo</label>
+            <input class="db w-100 pa05 ba lato dark-gray b--light-gray br0125" type="text" id="name" name="user_name" />
+          </div>
+          <div>
+            <label for="msg">Domicilio</label>
+            <textarea id="msg" name="user_message"></textarea>
+          </div>
+          <div class="button">
+            <button type="submit">Send your message</button>
+          </div>
+        </section>
+      </form>
+      <%# End %>
+    </article>
+  </div>
+  <div class="fl-ns w-10-m w-20-l" style="min-height: 1px;"></div>
+</main>
