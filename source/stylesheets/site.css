@@ -2,6 +2,8 @@
   GENERAL
 */
 html { -webkit-font-smoothing: antialiased; }
+a { outline: none; }
+a:focus {  }
 /*
   HEIGHT
 */
@@ -16,6 +18,7 @@ html { -webkit-font-smoothing: antialiased; }
 */
 .mv4 { margin-top: 4rem; margin-bottom: 4rem; }
 .mh15 { margin-right: 1.5rem; margin-left: 1.5rem; }
+.mt1 { margin-top: 1rem; }
 .mt15 { margin-top: 1.5rem; }
 .mt4 { margin-top: 4rem; }
 .mr05 { margin-right: 0.5rem; }
@@ -43,7 +46,9 @@ html { -webkit-font-smoothing: antialiased; }
 .pr05 { padding-right: 0.5rem; }
 .pb2 { padding-bottom: 2rem; }
 .pb3 { padding-bottom: 3rem; }
-.pl-2 { padding-left: 2rem; }
+.pb4 { padding-bottom: 4rem; }
+.pl05 { padding-left: 0.5rem; }
+.pl2 { padding-left: 2rem; }
 /*
   FONT FAMILY
 */
@@ -85,6 +90,7 @@ html { -webkit-font-smoothing: antialiased; }
 .b--light-gray { border-color: #e0e0e0; }
 .b--blue { border-color: #0080ff; }
 .b--green { border-color: #27ae60; }
+.b--red { border-color: #eb5757; }
 /*
 
   WIDTHS
@@ -101,6 +107,8 @@ html { -webkit-font-smoothing: antialiased; }
 
 */
 .h025 { height: 0.25rem; }
+.h2_5 { height: 2.5rem; }
+.h10 { height: 10rem; }
 .h20 { height: 20rem; }
 /*
 
@@ -129,6 +137,33 @@ html { -webkit-font-smoothing: antialiased; }
   display: inline-block;
   padding-right: 0.5rem;
   color: #0080ff;
+}
+/*
+
+  FORMS
+
+*/
+textarea, input, select {
+  -webkit-transition: border 0.25s ease-in-out;
+  transition: border 0.25s ease-in-out;
+  outline: none;
+}
+select {
+  background-image: url('../images/icons/dropdown.svg');
+  background-size: 0.5rem;
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  padding-right: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+select::-ms-expand {
+  display: none;
+}
+textarea:focus, input:focus, select:focus {
+  border-color: #0080ff;
 }
 /*
 
@@ -165,7 +200,9 @@ html { -webkit-font-smoothing: antialiased; }
   .pv15-ns { padding-top: 1.5rem; padding-bottom: 1.5rem; }
   .ph1-ns { padding-right: 1rem; padding-left: 1rem; }
   .ptc-ns { padding-top: 4.375rem; }
+  .pr05-ns { padding-right: 0.5rem; }
   .pr2-ns { padding-right: 2rem; }
+  .pl05-ns { padding-left: 0.5rem; }
   .pl2-ns { padding-left: 2rem; }
   .bg-almost-white-ns { background-color: #fafafa; }
   .b--light-gray-ns { border-color: #e0e0e0; }
