@@ -1,4 +1,8 @@
 module CustomHelpers
+  # Pretty URL: Transforms 'José Martí' -> 'jose-marti'
+  def pretty_url string
+    url = I18n.transliterate(string).downcase.strip.gsub(' ', '-')
+  end
   # Pretty Number: Transforms '(81) 8363 2324' -> '8183632324'
   def pretty_number telephone
     number = telephone.gsub(' ', '').gsub('(', '').gsub(')', '')
