@@ -75,6 +75,10 @@
               "details": ["5/16\"", "3/8\"", "1/2\"", "5/8\"", "3/4\"", "1\"", "1.25\"", "1.50\""]
             },
             {
+              "title": "Largos disponibles",
+              "details": ["9.15mts", "12mts"]
+            },
+            {
               "title": "Se vende por",
               "details": ["Varilla o Kilo"]
             }
@@ -109,6 +113,10 @@
             {
               "title": "Medidas disponibles",
               "details": ["15x15x3cm", "15x15x4cm", "15x20x4cm"]
+            },
+            {
+              "title": "Largo disponible",
+              "details": ["6mts"]
             },
             {
               "title": "Se vende por",
