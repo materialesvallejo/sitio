@@ -14,6 +14,7 @@ html { -webkit-font-smoothing: antialiased; }
 /*
   SPACING
 */
+.mv4 { margin-top: 4rem; margin-bottom: 4rem; }
 .mh15 { margin-right: 1.5rem; margin-left: 1.5rem; }
 .mt15 { margin-top: 1.5rem; }
 .mt4 { margin-top: 4rem; }
@@ -34,6 +35,7 @@ html { -webkit-font-smoothing: antialiased; }
 .pv8 { padding-top: 8rem; padding-bottom: 8rem; }
 .ph1 { padding-right: 1rem; padding-left: 1rem; }
 .ph15 { padding-right: 1.5rem; padding-left: 1.5rem; }
+.ph2 { padding-right: 2rem; padding-left: 2rem; }
 .ph3 { padding-right: 3rem; padding-left: 3rem; }
 .ptc { padding-top: 3.1525rem; }
 .pt15 { padding-top: 1.5rem; }
