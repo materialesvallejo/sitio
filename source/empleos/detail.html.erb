@@ -1,0 +1,32 @@
+---
+title: Test Job Detail
+layout: main
+---
+<%# Config %>
+<% job = locals[:job] %>
+<%# End %>
+<main class="mw645 center ph15 ph2-m ph0-l ptc cf">
+  <div class="fl-ns w-10-m w-20-l" style="min-height: 1px;"></div>
+  <div class="fl-ns w-80-m w-60-l">
+    <article class="mt4">
+      <header class="mb4">
+        <h1 class="ma0 mb1 lato dark-gray f15 fw4"><%= job.title %></h1>
+      </header>
+      <%# Config %>
+      <% sl = job.sections.length - 1 %>
+      <%# End %>
+      <% job.sections.each_with_index do |section, s| %>
+        <div class="<% if s != sl %>mb2<% else %>mb4<% end %>">
+          <h3 class="ma0 mb1 lato dark-gray f1 fw4"><%= section.title %></h3>
+          <p class="lato gray f1 fw4 lh15"><%= section.content %></p>
+          <% if s === sl %>
+            <a class="dib pv05 ph1 mt4 lato white fw7 no-underline tc bg-blue br0125" href="/empleos/<%= job.title.downcase %>/aplicacion">
+              Aplicar a Puesto
+            </a>
+          <% end %>
+        </div>
+      <% end %>
+    </article>
+  </div>
+  <div class="fl-ns w-10-m w-20-l" style="min-height: 1px;"></div>
+</main>
