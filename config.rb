@@ -7,11 +7,7 @@ configure :development do
   activate :livereload
 end
 
-###
-# Pages
-###
-
-# With no layout
+# Pages with no layout
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
@@ -19,6 +15,26 @@ page '/*.txt', layout: false
 # Activate directory indexes
 activate :directory_indexes
 
-# Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
-# proxy "/this-page-has-no-template.html", "/template-file.html", locals: {
-#  which_fake_page: "Rendering a fake page with a local variable" }
+###
+# Proxies
+###
+
+# Dynamic Jobs Index + Detail
+#
+$jobs = 0
+data.jobs.list.each do |job|
+  if job.is_published
+    $jobs += 1
+  end
+end
+
+data.jobs.list.each do |job|
+  if $jobs > 0
+    if job.is_published
+      proxy "/empleos/#{ I18n.transliterate(job.title).downcase.strip.gsub(' ', '-') }", "/empleos/detail.html", :locals => { :job => job }, :ignore => true
+      proxy "/empleos/#{ I18n.transliterate(job.title).downcase.strip.gsub(' ', '-') }/aplicacion", "/empleos/application.html", :locals => { :job => job }, :ignore => true
+    end
+  else
+    ignore "/empleos/index.html"
+  end
+end
