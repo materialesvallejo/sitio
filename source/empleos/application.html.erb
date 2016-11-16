@@ -4,6 +4,10 @@ layout: main
 ---
 <%# Config %>
 <% job = locals[:job] %>
+<% months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"] %>
+<% year_start = 1990 %>
+<% year_end = 2016 %>
+<% education = ["Primaria", "Secundaria", "Preparatoria", "Carrera", "Maestría", "Doctorado"] %>
 <%# End %>
 <main class="mw645 center ph15 ph2-m ph0-l ptc cf">
   <div class="fl-ns w-10-m w-20-l" style="min-height: 1px;"></div>
@@ -13,23 +17,443 @@ layout: main
         <h1 class="ma0 mb1 lato dark-gray f15 fw4"><%= job.title %></h1>
         <p class="ma0 lato gray f1 fw4 lh15"><%= data.jobs.application %></p>
       </header>
-      <%# Test %>
-      <%# Will first style and create form fields, then I'll create a dynamic .json template %>
-      <form action="" method="post">
-        <section class="debug">
-          <h3 class="ma0 mb1 lato dark-gray f1 fw4">Datos Personales</h3>
+      <%# Application Form %>
+      <form id="job-form" action="" method="post">
+        <div>
+          <button type="submit" class="dib pv1 ph15 mt4 lato white fw7 no-underline tc bg-blue bn br0125">Enviar Solicitud</button>
+        </div>
+        <%# ### %>
+        <%# Personal Information %>
+        <%# ### %>
+        <div class="mb4 pb4 bb b--light-gray">
+          <h3 class="ma0 mb2 lato dark-gray f15 fw4">Datos Personales</h3>
+          <div class="cf">
+            <%# Full Name %>
+            <div class="js-input fl-ns w-50-ns mb1 pr05-ns">
+              <label class="db ma0 mb05 lato f075 gray" for="full_name">
+                Nombre Completo
+                <span class="js-error js-fade is-hidden pl05 red">(Llenar Campo)</span>
+              </label>
+              <input type="text" id="full_name" name="full_name" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125">
+            </div>
+            <%# Civil Status %>
+            <div class="js-input fl-ns w-50-ns mb1 pl05-ns">
+              <label class="db ma0 mb05 lato f075 gray" for="civil_status">
+                Estado Civil
+              </label>
+              <input type="text" id="civil_status" name="civil_status" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" >
+            </div>
+          </div>
+          <div class="cf">
+            <%# Age %>
+            <div class="js-input fl-ns w-50-ns mb1 pr05-ns">
+              <label class="db ma0 mb05 lato f075 gray" for="age">
+                Edad
+              </label>
+              <input type="text" id="age" name="age" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" required>
+            </div>
+            <%# Email %>
+            <div class="js-input fl-ns w-50-ns mb1 pl05-ns">
+              <label class="db ma0 mb05 lato f075 gray" for="email">
+                Correo Electrónico
+              </label>
+              <input type="email" id="email" name="email" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" required>
+            </div>
+          </div>
+          <div class="cf">
+            <%# Address %>
+            <div class="fl-ns w-100-ns">
+              <label class="db ma0 mb05 lato f075 gray" for="address">
+                Domicilio
+                <span class="dn pl05 red">(Llenar Campo)</span>
+              </label>
+              <textarea id="address" name="address" class="db w-100 h10 pa05 ba lato lh15 dark-gray b--light-gray br0125"></textarea>
+            </div>
+          </div>
+        </div>
+        <%# ### %>
+        <%# Education %>
+        <%# ### %>
+        <div class="mb4 pb4 bb b--light-gray">
+          <h3 class="ma0 mb2 lato dark-gray f15 fw4">Último Estudio Realizado</h3>
+          <div class="cf">
+            <%# Name of Institution %>
+            <div class="fl-ns w-50-ns mb1 pr05-ns">
+              <label class="db ma0 mb05 lato f075 gray" for="name_of_institution">
+                Nombre de Institución
+                <span class="dn pl05 red">(Llenar Campo)</span>
+              </label>
+              <input type="text" id="name_of_institution" name="name_of_institution" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" >
+            </div>
+            <%# Degree %>
+            <div class="fl-ns w-50-ns mb1 pl05-ns">
+              <label class="db ma0 mb05 lato f075 gray" for="degree">
+                Estudio Realizado
+              </label>
+              <select id="degree" name="degree" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125 bg-white">
+                  <option selected disabled>Estudio Realizado</option>
+                <% education.each do |type| %>
+                  <option><%= type %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+          <div class="cf">
+            <%# Month of Graduation %>
+            <div class="fl w-50 mb1 pr05">
+              <label class="db ma0 mb05 lato f075 gray" for="graduation_month">
+                Mes de Graduación
+              </label>
+              <select id="graduation_month" name="graduation_month" class="db w-100 h2_5 pa05 ba lato f1 dark-gray b--light-gray br0125 bg-white">
+                  <option selected disabled>Mes</option>
+                <% months.each do |month| %>
+                  <option><%= month %></option>
+                <% end %>
+              </select>
+            </div>
+            <%# Year of Graduation %>
+            <div class="fl w-50 mb1 pl05">
+              <label for="graduation_year" class="db ma0 mb05 lato f075 gray">
+                Año de Graduación
+              </label>
+              <select id="graduation_year" name="graduation_year" class="db w-100 h2_5 pa05 ba lato f1 dark-gray b--light-gray br0125 bg-white">
+                  <option selected disabled>Año</option>
+                <% for year in year_start..year_end %>
+                  <option><%= year %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+        </div>
+        <%# Employment History %>
+        <div class="js-jobs">
+          <%# Section Title %>
+          <h3 class="ma0 mb2 lato dark-gray f15 fw4">Historial de Empleo</h3>
+          <%# ### %>
+          <%# Job #1 Details %>
+          <%# ### %>
+          <div class="mb4">
+            <h4 class="ma0 mb1 lato dark-gray f1 fw4">Detalles de Empleo #1</h4>
+            <div class="cf">
+              <%# Job Title %>
+              <div class="fl-ns w-100-ns mb1">
+                <label class="db ma0 mb05 lato f075 gray" for="job_title_1">
+                  Nombre de Puesto
+                </label>
+                <input type="text" id="job_title_1" name="job_title_1" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" >
+              </div>
+            </div>
+            <div class="cf">
+              <%# Date of Job Entry %>
+              <div class="fl w-50 mb1 pr05">
+                <label class="db ma0 mb05 lato f075 gray" for="start_month_1">
+                  Mes de Inicio
+                </label>
+                <select id="start_month_1" name="start_month_1" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125 bg-white">
+                    <option selected disabled>Mes</option>
+                  <% months.each do |month| %>
+                    <option value="<%= month %>"><%= month %></option>
+                  <% end %>
+                </select>
+              </div>
+              <%# Date of Job Entry %>
+              <div class="fl w-50 mb1 pl05">
+                <label class="db ma0 mb05 lato f075 gray" for="start_year_1">
+                  Año de Inicio
+                </label>
+                <select id="start_year_1" name="start_year_1" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125 bg-white">
+                    <option selected disabled>Año</option>
+                  <% for year in year_start..year_end %>
+                    <option><%= year %></option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+            <div class="cf">
+              <div class="fl w-50 mb1 pr05">
+                <label class="db ma0 mb05 lato f075 gray" for="end_month_1">
+                  Mes de Término
+                </label>
+                <select id="end_month_1" name="end_month_1" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125 bg-white">
+                    <option selected disabled>Mes</option>
+                  <% months.each do |month| %>
+                    <option><%= month %></option>
+                  <% end %>
+                </select>
+              </div>
+              <div class="fl w-50 mb1 pl05">
+                <label class="db ma0 mb05 lato f075 gray" for="end_year_1">
+                  Año de Término
+                </label>
+                <select id="end_year_1" name="end_year_1" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125 bg-white">
+                    <option selected disabled>Año</option>
+                  <% for year in year_start..year_end %>
+                    <option><%= year %></option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+            <%# Job Termination Comments %>
+            <div class="cf">
+              <div class="fl-ns w-100-ns mb1">
+                <label class="db ma0 mb05 lato f075 gray" for="comments_1">
+                  Comentarios del Término
+                </label>
+                <textarea id="comments_1" name="comments_1" class="db w-100 h10 pa05 ba lato lh15 dark-gray b--light-gray br0125" ></textarea>
+              </div>
+            </div>
+            <%# Company Name %>
+            <div class="cf">
+              <div class="fl-ns w-50-ns mb1 pr05-ns">
+                <label class="db ma0 mb05 lato f075 gray" for="company_name_1">
+                  Nombre de Empresa
+                </label>
+                <input type="text" id="company_name_1" name="company_name_1" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" >
+              </div>
+              <div class="fl-ns w-50-ns mb1 pl05-ns">
+                <label class="db ma0 mb05 lato f075 gray" for="boss_name_1">
+                  Nombre de Jefe Inmediato
+                </label>
+                <input type="email" id="boss_name_1" name="boss_name_1" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" >
+              </div>
+            </div>
+            <%# Job Phone Number %>
+            <div class="cf">
+              <div class="fl-ns w-100-ns mb1">
+                <label class="db ma0 mb05 lato f075 gray" for="phone_1">
+                  Teléfono de Empresa
+                </label>
+                <input type="text" id="phone_1" name="phone_1" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" >
+              </div>
+            </div>
+            <%# Job Address %>
+            <div class="cf">
+              <div class="fl-ns w-100-ns">
+                <label class="db ma0 mb05 lato f075 gray" for="address_1">
+                  Dirección de Empresa
+                </label>
+                <textarea id="address_1" name="address_1" class="db w-100 h10 pa05 ba lato lh15 dark-gray b--light-gray br0125 bg-white" ></textarea>
+              </div>
+            </div>
+          </div>
+          <%# ### %>
+          <%# Job #2 Details %>
+          <%# ### %>
+          <div class="mb4">
+            <h4 class="ma0 mb1 lato dark-gray f1 fw4">Detalles de Empleo #2</h4>
+            <div class="cf">
+              <%# Job Title %>
+              <div class="fl-ns w-100-ns mb1">
+                <label class="db ma0 mb05 lato f075 gray" for="job_title_2">
+                  Nombre de Puesto
+                </label>
+                <input type="text" id="job_title_2" name="job_title_2" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" >
+              </div>
+            </div>
+            <div class="cf">
+              <%# Date of Job Entry %>
+              <div class="fl w-50 mb1 pr05">
+                <label class="db ma0 mb05 lato f075 gray" for="start_month_2">
+                  Mes de Inicio
+                </label>
+                <select id="start_month_2" name="start_month_2" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125 bg-white">
+                    <option selected disabled>Mes</option>
+                  <% months.each do |month| %>
+                    <option><%= month %></option>
+                  <% end %>
+                </select>
+              </div>
+              <%# Date of Job Entry %>
+              <div class="fl w-50 mb1 pl05">
+                <label class="db ma0 mb05 lato f075 gray" for="start_year_2">
+                  Año de Inicio
+                </label>
+                <select id="start_year_2" name="start_year_2" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125 bg-white">
+                    <option selected disabled>Año</option>
+                  <% for year in year_start..year_end %>
+                    <option><%= year %></option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+            <div class="cf">
+              <div class="fl w-50 mb1 pr05">
+                <label class="db ma0 mb05 lato f075 gray" for="end_month_2">
+                  Mes de Término
+                </label>
+                <select id="end_month_2" name="end_month_2" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125 bg-white">
+                    <option selected disabled>Mes</option>
+                  <% months.each do |month| %>
+                    <option><%= month %></option>
+                  <% end %>
+                </select>
+              </div>
+              <div class="fl w-50 mb1 pl05">
+                <label class="db ma0 mb05 lato f075 gray" for="end_year_2">
+                  Año de Término
+                </label>
+                <select id="end_year_2" name="end_year_2" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125 bg-white">
+                    <option selected disabled>Año</option>
+                  <% for year in year_start..year_end %>
+                    <option><%= year %></option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+            <%# Job Termination Comments %>
+            <div class="cf">
+              <div class="fl-ns w-100-ns mb1">
+                <label class="db ma0 mb05 lato f075 gray" for="comments_2">
+                  Comentarios del Término
+                </label>
+                <textarea id="comments_2" name="comments_2" class="db w-100 h10 pa05 ba lato lh15 dark-gray b--light-gray br0125" ></textarea>
+              </div>
+            </div>
+            <%# Company Name %>
+            <div class="cf">
+              <div class="fl-ns w-50-ns mb1 pr05-ns">
+                <label class="db ma0 mb05 lato f075 gray" for="company_name_2">
+                  Nombre de Empresa
+                </label>
+                <input type="text" id="company_name_2" name="company_name_2" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" >
+              </div>
+              <div class="fl-ns w-50-ns mb1 pl05-ns">
+                <label class="db ma0 mb05 lato f075 gray" for="boss_name_2">
+                  Nombre de Jefe Inmediato
+                </label>
+                <input type="email" id="boss_name_2" name="boss_name_2" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" >
+              </div>
+            </div>
+            <%# Job Phone Number %>
+            <div class="cf">
+              <div class="fl-ns w-100-ns mb1">
+                <label class="db ma0 mb05 lato f075 gray" for="phone_2">
+                  Teléfono de Empresa
+                </label>
+                <input type="text" id="phone_2" name="phone_2" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" >
+              </div>
+            </div>
+            <%# Job Address %>
+            <div class="cf">
+              <div class="fl-ns w-100-ns">
+                <label class="db ma0 mb05 lato f075 gray" for="address_2">
+                  Dirección de Empresa
+                </label>
+                <textarea id="address_2" name="address_2" class="db w-100 h10 pa05 ba lato lh15 dark-gray b--light-gray br0125 bg-white" ></textarea>
+              </div>
+            </div>
+          </div>
+          <%# ### %>
+          <%# Job #3 Details %>
+          <%# ### %>
           <div>
-            <label class="db ma0 mb05 lato f075 gray" for="name">Nombre completo</label>
-            <input class="db w-100 pa05 ba lato dark-gray b--light-gray br0125" type="text" id="name" name="user_name" />
+            <h4 class="ma0 mb1 lato dark-gray f1 fw4">Detalles de Empleo #3</h4>
+            <div class="cf">
+              <%# Job Title %>
+              <div class="fl-ns w-100-ns mb1">
+                <label class="db ma0 mb05 lato f075 gray" for="job_title_3">
+                  Nombre de Puesto
+                </label>
+                <input type="text" id="job_title_3" name="job_title_3" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" >
+              </div>
+            </div>
+            <div class="cf">
+              <%# Date of Job Entry %>
+              <div class="fl w-50 mb1 pr05">
+                <label class="db ma0 mb05 lato f075 gray" for="start_month_3">
+                  Mes de Inicio
+                </label>
+                <select id="start_month_3" name="start_month_3" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125 bg-white">
+                    <option selected disabled>Mes</option>
+                  <% months.each do |month| %>
+                    <option><%= month %></option>
+                  <% end %>
+                </select>
+              </div>
+              <%# Date of Job Entry %>
+              <div class="fl w-50 mb1 pl05">
+                <label class="db ma0 mb05 lato f075 gray" for="start_year_3">
+                  Año de Inicio
+                </label>
+                <select id="start_year_3" name="start_year_3" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125 bg-white">
+                    <option selected disabled>Año</option>
+                  <% for year in year_start..year_end %>
+                    <option><%= year %></option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+            <div class="cf">
+              <div class="fl w-50 mb1 pr05">
+                <label class="db ma0 mb05 lato f075 gray" for="end_month_3">
+                  Mes de Término
+                </label>
+                <select id="end_month_3" name="end_month_3" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125 bg-white">
+                    <option selected disabled>Mes</option>
+                  <% months.each do |month| %>
+                    <option><%= month %></option>
+                  <% end %>
+                </select>
+              </div>
+              <div class="fl w-50 mb1 pl05">
+                <label class="db ma0 mb05 lato f075 gray" for="end_year_3">
+                  Año de Término
+                </label>
+                <select id="end_year_3" name="end_year_3" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125 bg-white">
+                    <option selected disabled>Año</option>
+                  <% for year in year_start..year_end %>
+                    <option><%= year %></option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+            <%# Job Termination Comments %>
+            <div class="cf">
+              <div class="fl-ns w-100-ns mb1">
+                <label class="db ma0 mb05 lato f075 gray" for="comments_3">
+                  Comentarios del Término
+                </label>
+                <textarea id="comments_3" name="comments_3" class="db w-100 h10 pa05 ba lato lh15 dark-gray b--light-gray br0125" ></textarea>
+              </div>
+            </div>
+            <%# Company Name %>
+            <div class="cf">
+              <div class="fl-ns w-50-ns mb1 pr05-ns">
+                <label class="db ma0 mb05 lato f075 gray" for="company_name_3">
+                  Nombre de Empresa
+                </label>
+                <input type="text" id="company_name_3" name="company_name_3" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" >
+              </div>
+              <div class="fl-ns w-50-ns mb1 pl05-ns">
+                <label class="db ma0 mb05 lato f075 gray" for="boss_name_3">
+                  Nombre de Jefe Inmediato
+                </label>
+                <input type="email" id="boss_name_3" name="boss_name_3" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" >
+              </div>
+            </div>
+            <%# Job Phone Number %>
+            <div class="cf">
+              <div class="fl-ns w-100-ns mb1">
+                <label class="db ma0 mb05 lato f075 gray" for="phone_3">
+                  Teléfono de Empresa
+                </label>
+                <input type="text" id="phone_3" name="phone_3" class="db w-100 h2_5 pa05 ba lato dark-gray b--light-gray br0125" >
+              </div>
+            </div>
+            <%# Job Address %>
+            <div class="cf">
+              <div class="fl-ns w-100-ns">
+                <label class="db ma0 mb05 lato f075 gray" for="address_3">
+                  Dirección de Empresa
+                </label>
+                <textarea id="address_3" name="address_3" class="db w-100 h10 pa05 ba lato lh15 dark-gray b--light-gray br0125 bg-white" ></textarea>
+              </div>
+            </div>
           </div>
-          <div>
-            <label for="msg">Domicilio</label>
-            <textarea id="msg" name="user_message"></textarea>
-          </div>
-          <div class="button">
-            <button type="submit">Send your message</button>
-          </div>
-        </section>
+        </div>
+        <%# ### %>
+        <%# Button %>
+        <%# ### %>
       </form>
       <%# End %>
     </article>
