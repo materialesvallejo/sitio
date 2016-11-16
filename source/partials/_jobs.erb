@@ -12,7 +12,7 @@
 <%# Content %>
 <% if available_jobs > 0 %>
   <section class="pv3 ph15 bt b--light-gray">
-    <header class="lato tc">
+    <header class="mw18 mw28-ns center lato tc">
       <h1 class="ma0 mb1 f15 fw4 lh01"><%= data.jobs.banner.title %></h1>
       <% if available_jobs === 1 %>
         <p class="ma0 mb2 f1 fw4 lh15 gray"><%= available_job.ad_subtitle %></p>
@@ -24,12 +24,12 @@
       <%# ### %>
       <%# HREF PENDING %>
       <%# ### %>
-      <a class="db center w8 pv05 lato white fw7 tc bg-blue br0125 no-underline" href=""><%= data.jobs.banner.buttons.single %></a>
+      <a class="db center w8 pv05 lato white fw7 tc bg-blue br0125 no-underline" href="/empleos"><%= data.jobs.banner.buttons.single %></a>
     <% else %>
       <%# ### %>
       <%# HREF PENDING %>
       <%# ### %>
-      <a class="db center w8 pv05 lato white fw7 tc bg-blue br0125 no-underline" href=""><%= data.jobs.banner.buttons.multiple %></a>
+      <a class="db center w8 pv05 lato white fw7 tc bg-blue br0125 no-underline" href="/empleos"><%= data.jobs.banner.buttons.multiple %></a>
     <% end %>
   </section>
 <% end %>
