@@ -13,8 +13,9 @@
   },
   "list": [
     {
-      "is_published": false,
+      "is_published": true,
       "title": "Secretaria",
+      "link_title": "Ver Detalle",
       "ad_subtitle": "Buscamos a una secretaria local con experiencia atendiendo clientes que se una a nuestro equipo.",
       "sections": [
         {
@@ -28,8 +29,9 @@
       ]
     },
     {
-      "is_published": false,
+      "is_published": true,
       "title": "Contadora",
+      "link_title": "Ver Detalle",
       "ad_subtitle": "Buscamos a una contadora con experiencia en llevar un sistema computarizado de contabilidad que se una a nuestro equipo.",
       "sections": [
         {
@@ -43,8 +45,9 @@
       ]
     },
     {
-      "is_published": false,
+      "is_published": true,
       "title": "Chofer",
+      "link_title": "Ver Detalle",
       "ad_subtitle": "Buscamos a un chofer con experiencia en el manejo de camión que se una a nuestro equipo.",
       "sections": [
         {
@@ -58,8 +61,9 @@
       ]
     },
     {
-      "is_published": false,
+      "is_published": true,
       "title": "Asistente de Chofer",
+      "link_title": "Ver Detalle",
       "ad_subtitle": "Buscamos a un ayudante de chofer con capacidad de cargar y descargar materiales para construcción que se una nuestro equipo.",
       "sections": [
         {
