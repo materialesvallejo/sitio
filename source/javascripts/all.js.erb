@@ -258,3 +258,36 @@ function navAction(status) {
   }
 }
 updateDynamicContent(setCurrentDayTime(), setCurrentDayType());
+/*
+
+  Job Application Form Validation
+
+*/
+// const $form = document.getElementById('job-form');
+// $form.addEventListener('submit', function(e){
+//   var submit = validator();
+//   if (!submit) { e.preventDefault(); }
+// });
+// //
+// function validator() {
+//   var submit = true;
+//   const $input = document.getElementsByClassName('js-input');
+//   for (var i = 0; i < $input.length; i++) {
+//     if ($input[i].getElementsByTagName("input")[0].value == '') {
+//       style($input[i], "input");
+//       submit = false;
+//     }
+//   }
+//   return submit;
+// }
+// //
+// function style($field, type) {
+//   if (type === "input") {
+//     const $errorLabel = $field.getElementsByClassName('js-error')[0];
+//     const $input = $field.getElementsByTagName('input')[0];
+//     $errorLabel.classList.toggle('is-hidden');
+//     $errorLabel.classList.toggle('is-visible');
+//     $input.classList.toggle('b--light-gray');
+//     $input.classList.toggle('b--red');
+//   }
+// }
