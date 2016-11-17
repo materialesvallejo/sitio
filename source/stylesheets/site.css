@@ -98,6 +98,7 @@ a:focus {  }
 */
 .w025 { width: 0.25rem; }
 .w1 { width: 2rem; }
+.w3 { width: 3rem; }
 .w4 { width: 4rem; }
 .w8 { width: 8rem; }
 .w15 { width: 15rem; }
@@ -108,6 +109,7 @@ a:focus {  }
 */
 .h025 { height: 0.25rem; }
 .h2_5 { height: 2.5rem; }
+.h3 { height: 3rem; }
 .h10 { height: 10rem; }
 .h20 { height: 20rem; }
 /*
