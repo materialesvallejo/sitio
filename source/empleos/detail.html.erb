@@ -20,7 +20,7 @@ layout: main
           <h3 class="ma0 mb1 lato dark-gray f1 fw4"><%= section.title %></h3>
           <p class="lato gray f1 fw4 lh15"><%= section.content %></p>
           <% if s === sl %>
-            <a class="dib pv05 ph1 mt4 lato white fw7 no-underline tc bg-blue br0125" href="/empleos/<%= job.title.downcase %>/aplicacion">
+            <a class="dib pv05 ph1 mt4 lato white fw7 no-underline tc bg-blue br0125" href="/empleos/<%= pretty_url job.title %>/aplicacion">
               Aplicar a Puesto
             </a>
           <% end %>
