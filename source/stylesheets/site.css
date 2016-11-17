@@ -201,7 +201,7 @@ textarea:focus, input:focus, select:focus {
   .pv1-ns { padding-top: 1rem; padding-bottom: 1rem; }
   .pv15-ns { padding-top: 1.5rem; padding-bottom: 1.5rem; }
   .ph1-ns { padding-right: 1rem; padding-left: 1rem; }
-  .ptc-ns { padding-top: 4.375rem; }
+  .ptc { padding-top: 4.375rem; }
   .pr05-ns { padding-right: 0.5rem; }
   .pr2-ns { padding-right: 2rem; }
   .pl05-ns { padding-left: 0.5rem; }
