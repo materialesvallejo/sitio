@@ -15,6 +15,7 @@
   "list": [
     {
       "is_published": true,
+      "api_key": "95a5898a50a025a64ceff5eb92a45eab",
       "title": "Secretaria",
       "link_title": "Ver Detalle",
       "ad_subtitle": "Buscamos a una secretaria local con experiencia atendiendo clientes que se una a nuestro equipo.",
@@ -31,6 +32,7 @@
     },
     {
       "is_published": true,
+      "api_key": "95a5898a50a025a64ceff5eb92a45eab",
       "title": "Contadora",
       "link_title": "Ver Detalle",
       "ad_subtitle": "Buscamos a una contadora con experiencia en llevar un sistema computarizado de contabilidad que se una a nuestro equipo.",
@@ -47,6 +49,7 @@
     },
     {
       "is_published": true,
+      "api_key": "95a5898a50a025a64ceff5eb92a45eab",
       "title": "Chofer",
       "link_title": "Ver Detalle",
       "ad_subtitle": "Buscamos a un chofer con experiencia en el manejo de camión que se una a nuestro equipo.",
@@ -63,6 +66,7 @@
     },
     {
       "is_published": true,
+      "api_key": "95a5898a50a025a64ceff5eb92a45eab",
       "title": "Asistente de Chofer",
       "link_title": "Ver Detalle",
       "ad_subtitle": "Buscamos a un ayudante de chofer con capacidad de cargar y descargar materiales para construcción que se una nuestro equipo.",
