@@ -1,7 +1,10 @@
 {
-  "title": "",
+  "title": "La página que buscas no existe",
   "subtitle": "Si estas batallando en encontrar lo que buscas envíanos un mensaje, estamos para ayudarte.",
-  "icon": "images/icons/error.svg",
+  "image": {
+    "path": "images/icons/error.svg",
+    "alt": "La página que buscas no existe."
+  },
   "actions": [
     {
       "is_primary_button": true,
