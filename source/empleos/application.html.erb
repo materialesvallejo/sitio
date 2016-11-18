@@ -13,9 +13,11 @@ layout: main
   <div class="fl-ns w-10-m w-20-l" style="min-height: 1px;"></div>
   <div class="fl-ns w-80-m w-60-l">
     <article class="mv4">
+      <a class="db ma0 mb4 lato blue f1 fw4 no-underline" href="/empleos/<%= pretty_url job.title %>"><span class="dib mr05">←</span>Regresar a Detalle</a>
       <header class="mb4">
-        <h1 class="ma0 mb1 lato dark-gray f15 fw4"><%= job.title %></h1>
-        <p class="ma0 lato gray f1 fw4 lh15"><%= data.jobs.application %></p>
+        <h1 class="ma0 mb05 lato dark-gray f15 fw4"><%= job.title %></h1>
+        <h3 class="ma0 mb15 lato silver f1 fw4"><%= job.subtitle %></h3>
+        <p class="ma0 lato gray f1 fw4 lh15"><%= data.jobs.application.title %> <span class="js-application"><%= data.jobs.application.opens %></span></p>
       </header>
       <%# ### %>
       <%# Simple Form %>
@@ -453,7 +455,7 @@ layout: main
         <%# Button %>
         <%# ### %>
         <div>
-          <button type="submit" class="dib pv1 ph15 mt4 lato white fw7 no-underline tc bg-blue bn br0125">Enviar Solicitud</button>
+          <button type="submit" class="dib w8 pv1 ph15 mt4 lato white fw7 no-underline tc bg-blue bn br0125">Enviar</button>
         </div>
       </form>
     </article>
