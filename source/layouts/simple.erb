@@ -9,7 +9,8 @@
     <%= stylesheet_link_tag :tachyons %>
     <%= stylesheet_link_tag :site %>
   </head>
-  <body class="h-100">
+  <body class="js-load is-hidden h-100">
     <%= yield %>
+    <%= javascript_include_tag "all" %>
   </body>
 </html>
