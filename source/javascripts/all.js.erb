@@ -1,3 +1,6 @@
+/* Config */
+const currentRoute = window.location.href;
+console.log(currentRoute);
 /*
 
   Product Navigation
@@ -211,6 +214,13 @@ function updateDynamicContent(officeStatus, dayType) {
   if (officeStatus === "Closed") {
     navStatus("Closed");
     navAction("Closed");
+    mobileAction("Closed");
+    if (currentRoute.endsWith('empresa')) {
+      aboutContent("Closed");
+    }
+    if (currentRoute.endsWith('aplicacion')) {
+      applicationContent("Closed");
+    }
   }
   //  Set dynamic content to "Open"
   if (officeStatus === "Open" && ((dayType ===  "Full Day") || (dayType === "Half Day"))) {
@@ -223,6 +233,13 @@ function updateDynamicContent(officeStatus, dayType) {
   if (officeStatus === "Lunch" && dayType === "Full Day") {
     navStatus("Lunch");
     navAction("Lunch");
+    mobileAction("Lunch");
+    if (currentRoute.endsWith('empresa')) {
+      aboutContent("Lunch");
+    }
+    if (currentRoute.endsWith('aplicacion')) {
+      applicationContent("Lunch");
+    }
   }
 }
 //  Updates nav status
@@ -257,37 +274,44 @@ function navAction(status) {
     $button.innerHTML = "<%= data.contact.button.closes.title %>";
   }
 }
+//  Updates mobile contact button
+function mobileAction(status) {
+  //  Cache mobile contact button
+  const $button = document.getElementsByClassName('js-mobile')[0];
+  //  Set button to "Closed" / "Lunch" status
+  if (status === "Closed" || status === "Lunch") {
+    $button.classList.toggle('bg-green');
+    $button.classList.toggle('bg-blue');
+    $button.setAttribute('href', 'mailto:<%= data.contact.email %>');
+    $button.style.backgroundImage = "url('../../images/icons/mensaje.svg')";
+  }
+}
+//  Updates About content
+function aboutContent(status) {
+  //  Cache about status span
+  const $about = document.getElementsByClassName('js-about')[0];
+  const $contact = document.getElementsByClassName('js-contact')[0];
+  const $remove = document.getElementsByClassName('js-remove')[0];
+  //  Set innerHTML to "Closed" / "Lunch" status
+  if (status === "Closed") {
+    $about.innerHTML = '<%= data.about.contact.closes %>';
+    $contact.removeChild($remove);
+  }
+  else if (status === "Lunch") {
+    $about.innerHTML = '<%= data.about.contact.lunch %>';
+    $contact.removeChild($remove);
+  }
+}
+//  Updates Application content
+function applicationContent(status) {
+  //  Cache application information span
+  const $application = document.getElementsByClassName('js-application')[0];
+  //  Set innerHTML to "Closed"
+  if (status === "Closed") {
+    $application.innerHTML = '<%= data.jobs.application.closes %>';
+  }
+  else if (status === "Lunch") {
+    $application.innerHTML = '<%= data.jobs.application.lunch %>';
+  }
+}
 updateDynamicContent(setCurrentDayTime(), setCurrentDayType());
-/*
-
-  Job Application Form Validation
-
-*/
-// const $form = document.getElementById('job-form');
-// $form.addEventListener('submit', function(e){
-//   var submit = validator();
-//   if (!submit) { e.preventDefault(); }
-// });
-// //
-// function validator() {
-//   var submit = true;
-//   const $input = document.getElementsByClassName('js-input');
-//   for (var i = 0; i < $input.length; i++) {
-//     if ($input[i].getElementsByTagName("input")[0].value == '') {
-//       style($input[i], "input");
-//       submit = false;
-//     }
-//   }
-//   return submit;
-// }
-// //
-// function style($field, type) {
-//   if (type === "input") {
-//     const $errorLabel = $field.getElementsByClassName('js-error')[0];
-//     const $input = $field.getElementsByTagName('input')[0];
-//     $errorLabel.classList.toggle('is-hidden');
-//     $errorLabel.classList.toggle('is-visible');
-//     $input.classList.toggle('b--light-gray');
-//     $input.classList.toggle('b--red');
-//   }
-// }
