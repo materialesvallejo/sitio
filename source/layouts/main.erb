@@ -10,9 +10,10 @@
     <%= stylesheet_link_tag :tachyons %>
     <%= stylesheet_link_tag :site %>
   </head>
-  <body>
+  <body class="relative">
     <%= partial "partials/nav" %>
     <%= yield %>
+    <%= partial "partials/mobile" %>
     <%= partial "partials/footer" %>
     <%= javascript_include_tag :all %>
   </body>
