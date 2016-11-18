@@ -1,17 +1,12 @@
-/* Config */
-const currentPath = window.location.pathname;
-console.log(currentPath);
 /*
 
   Product Navigation
+  (Cross-browser compatible)
 
 */
 //  Cache Product Card nodes
 const $cards = document.getElementsByClassName('js-card');
-for (var c = 0; c < $cards.length; c++) {
-  console.log("Product " + c + ": " + $cards[c].offsetLeft);
-}
-//
+//  Cache list of product categories
 <%# Config %>
 <% categories = [] %>
 <% data.products.categories.each do |category| %>
@@ -19,7 +14,7 @@ for (var c = 0; c < $cards.length; c++) {
 <% end %>
 <%# End %>
 const categories = <%= categories %>;
-//
+//  Category object with offset values of first product card under that category
 var Categories = new Object();
 for (var c = 0; c < categories.length; c++) {
   for (var i = 0; i < $cards.length; i++) {
@@ -29,29 +24,38 @@ for (var c = 0; c < categories.length; c++) {
     }
   }
 }
-//
+//  Creating click event listener for category carrusel
 const $categories = document.getElementsByClassName('js-category');
 for (var c = 0; c < $categories.length; c++) {
-  $categories[c].addEventListener('click', function(){
-    clearNav();
-    activateNav(this);
-    scrollTo(this.innerHTML);
-  });
+  if (window.attachEvent) {
+    $categories[c].attachEvent('onclick', function(){
+      clearNav();
+      activateNav(this);
+      scrollTo(this.innerHTML);
+    });
+  }
+  else if (window.addEventListener) {
+    $categories[c].addEventListener('click', function(){
+      clearNav();
+      activateNav(this);
+      scrollTo(this.innerHTML);
+    });
+  }
 }
-//
+//  Removes `.blue` active class and adds `.gray` default class to product category linkn
 function clearNav() {
   for (var c = 0; c < $categories.length; c++) {
     $categories[c].classList.remove('blue');
     $categories[c].classList.add('gray');
   }
 }
-//
+//  Adds '.blue' to clicked navigation link
 function activateNav($element) {
   $element.classList.add('blue');
 }
 //  Cache Product Card carrusel
 const $carrusel = document.getElementById('carrusel');
-//
+//  Scrolls Carrusel to x-value of first product card of each category
 function scrollTo(category) {
   const xValue = Categories[category.toLowerCase()];
   console.log(xValue);
@@ -60,13 +64,21 @@ function scrollTo(category) {
 /*
 
   Product Card Interaction
+  (Cross-browser compatible)
 
 */
 //  Add an Event Listener for each Product Card
 for (var c = 0; c < $cards.length; c++) {
-  $cards[c].addEventListener('click', function(){
-    updateCard(this);
-  });
+  if (window.attachEvent) {
+    $cards[c].attachEvent('onclick', function(){
+      updateCard(this);
+    });
+  }
+  else if (window.addEventListener) {
+    $cards[c].addEventListener('click', function(){
+      updateCard(this);
+    });
+  }
 }
 //  Dispatches Product Card styling-animation functions: rotate and fade
 function updateCard($card) {
@@ -108,6 +120,7 @@ function hasClass($node, cls) {
 /*
 
   Navigation Update
+  (Cross-browser compatible)
 
 */
 //  Time Variables
@@ -120,8 +133,9 @@ var today = new Date(),
     currentHour = today.getHours(),
     currentMinutes = today.getMinutes(),
     currentTime = currentHour + (currentMinutes / 59),
-//  Type of Day Variable
     currentDayType;
+//  Current Path constant
+const currentPath = window.location.pathname;
 //  Half and Full Holiday List
 <%# Configuration %>
 <% half_holiday = [] %>
@@ -319,7 +333,7 @@ function contactSection(status) {
   const $subtitle = document.getElementsByClassName('js-subtitle')[0];
   const $phone = document.getElementsByClassName('js-phone')[0];
   const $schedule = document.getElementsByClassName('js-schedule')[0];
-  //
+  //  Set subtitle, phone, and schedule to "Closed"
   if (status === "Closed") {
     $subtitle.innerHTML = '<%= data.index.contact.subtitle.closes %>';
     $phone.classList.remove('blue');
@@ -328,7 +342,7 @@ function contactSection(status) {
     $phone.removeAttribute('href');
     $schedule.innerHTML = '<%= data.contact.section.schedule.closes %>';
   }
-  //
+  //  Set subtitle, phone, and schedule to "Lunch"
   if (status === "Lunch") {
     $subtitle.innerHTML = '<%= data.index.contact.subtitle.lunch %>';
     $phone.classList.remove('blue');
@@ -338,12 +352,14 @@ function contactSection(status) {
     $schedule.innerHTML = '<%= data.contact.section.schedule.lunch %>';
   }
 }
-updateDynamicContent("Closed", setCurrentDayType());
+//  Updating dynamic content
+updateDynamicContent(setCurrentDayTime(), setCurrentDayType());
 /*
 
   Google Maps
 
 */
+//  Google Map initializer function
 function initMap() {
   var materialesVallejo = {lat: 25.864598, lng: -97.515169};
   var map = new google.maps.Map(document.getElementById('map'), {
