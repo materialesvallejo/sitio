@@ -29,13 +29,13 @@ layout: main
             <p class="ma0 lato dark-gray lh15 <% if d === dl %>mb4<% else %>mb2<% end %>">
               <%= detail %>
               <% if d === dl %>
-              <span><%= about.contact.opens %></span>
+              <span class="js-about"><%= about.contact.opens %></span>
               <% end %>
             </p>
           <% end %>
           <div class="cf mb4">
-            <div class="fl-ns w-50-ns mb2 mb0-ns">
-              <div class="mb2">
+            <div class="js-contact fl-ns w-50-ns mb2 mb0-ns">
+              <div class="js-remove mb2">
                 <h2 class="ma0 mb05 fw4 f1 lato dark-gray"><%= data.about.contact.phone_title %></h2>
                 <a class="lato blue no-underline" href="tel:<%= pretty_number data.contact.number %>" target=""><%= data.contact.number %></a>
               </div>
