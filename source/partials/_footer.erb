@@ -17,7 +17,7 @@
         <% data.footer.sections.each_with_index do |section, s| %>
           <% if section.is_dynamic && available_jobs > 0 || section.is_dynamic != true %>
             <li class="db dib-ns tc bt b--light-gray bt-0-ns">
-              <a class="db pv15 pv0-ns pl2-ns lato gray hover-dark-gray link bg-almost-white" href="<%= section.url %>" target="<% if section.target %>_blank<% end %>"><%= section.title %></a>
+              <a class="db pv15 pv0-ns pl2-ns lato gray hover-dark-gray link bg-almost-white bg-white-ns" href="<%= section.url %>" target="<% if section.target %>_blank<% end %>"><%= section.title %></a>
             </li>
           <% end %>
         <% end %>
