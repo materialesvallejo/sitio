@@ -10,11 +10,12 @@
     <%= stylesheet_link_tag :tachyons %>
     <%= stylesheet_link_tag :site %>
   </head>
-  <body class="relative">
+  <body class="js-load is-hidden relative">
     <%= partial "partials/nav" %>
     <%= yield %>
     <%= partial "partials/mobile" %>
     <%= partial "partials/footer" %>
     <%= javascript_include_tag :all %>
+    <%= javascript_include_tag :scroll %>
   </body>
 </html>
