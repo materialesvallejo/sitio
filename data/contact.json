@@ -1,9 +1,26 @@
 {
+  "section": {
+    "phone": {
+      "title": "Teléfono"
+    },
+    "email": {
+      "title": "Email"
+    },
+    "address": {
+      "title": "Dirección"
+    },
+    "schedule": {
+      "opens": "Horarios <span class=\"silver\">(Abierto)</span>",
+      "lunch": "Horarios <span class=\"silver\">(En la Comida)</span>",
+      "closes": "Horarios <span class=\"silver\">(Cerrado)</span>"
+    }
+  },
   "number": "868 816 3393",
   "email": "matvallejo@outlook.com",
   "github": "https://github.com/materialesvallejo/sitio",
+  "maps": "Abrir mapa en Google Maps",
   "address": {
-    "street": "Calle Francisco Villarreal #???",
+    "street": "Calle Dieciocho #156",
     "sector": "Colonia Buenavista",
     "city": "Matamoros",
     "state": "Tams.",
