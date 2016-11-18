@@ -1,3 +1,38 @@
+/*  Global constant  */
+//  Current Path constant
+const currentPath = window.location.pathname;
+/*
+
+  Content Animation
+  (Cross-browser compatible)
+
+*/
+/*  Main Template Content animation */
+//  Cache load-in elements
+const $load = document.getElementsByClassName('js-load')[0];
+const $scale = document.getElementsByClassName('js-scale')[0];
+if (window.attachEvent) {
+  window.attachEvent('onload', function(){
+    $load.classList.remove('is-hidden');
+    $load.classList.add('is-visible');
+    if (currentPath != '/error' || currentPath != '/aplicacion-enviada') {
+      $scale.classList.remove('is-tiny');
+      $scale.classList.add('is-normal');
+    }
+  });
+}
+else if (window.addEventListener) {
+  window.addEventListener('load', function(){
+    $load.classList.remove('is-hidden');
+    $load.classList.add('is-visible');
+    if (currentPath != '/error' || currentPath != '/aplicacion-enviada') {
+      $scale.classList.remove('is-tiny');
+      $scale.classList.add('is-normal');
+    }
+  });
+}
+/*  Simple Template Content animation */
+//  Cache load-in elements
 /*
 
   Product Navigation
@@ -134,8 +169,6 @@ var today = new Date(),
     currentMinutes = today.getMinutes(),
     currentTime = currentHour + (currentMinutes / 59),
     currentDayType;
-//  Current Path constant
-const currentPath = window.location.pathname;
 //  Half and Full Holiday List
 <%# Configuration %>
 <% half_holiday = [] %>
