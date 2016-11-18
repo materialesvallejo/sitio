@@ -8,7 +8,7 @@ layout: main
   <%# Config %>
   <% jobs = data.jobs %>
   <%# End %>
-  <header class="mw18 mw28-ns center mv4 lato tc">
+  <header class="mw18 mw28-ns center pv4 lato tc">
     <h1 class="ma0 mb1 dark-gray f15 f2-ns fw4 lh01"><%= jobs.page.title %></h1>
     <p class="ma0 mb2 gray f1 fw4 lh15"><%= jobs.page.subtitle %></p>
   </header>
@@ -21,10 +21,10 @@ layout: main
       <% if j === 0 || j === ((ll / 2).floor - 1) %>
       <div class="cf <% if j === 0 %>mb2-ns<% end %>">
       <% end %>
-      <div class="fl-ns w-50-ns <% if j != ll %>mb2<% end %> <% if j % 2 === 0 %>pr2-ns<% else %><% end %>">
+      <div class="fl-ns w-50-ns <% if j != ll %>mb4<% end %> <% if j % 2 === 0 %>pr2-ns<% else %><% end %>">
         <h3 class="dib ma0 mb05 lato f1 fw4 dark-gray"><%= job.title %></h3>
         <p class="ma0 mb1 lato f1 fw4 lh15 gray"><%= job.ad_subtitle %></p>
-        <a class="db ma0 lato f1 fw4 blue no-underline" href="/empleos/<%= pretty_url job.title %>"><%= job.link_title %></a>
+        <a class="db ma0 lato f1 fw4 blue hover-dark-blue link no-underline" href="/empleos/<%= pretty_url job.title %>"><%= job.link_title %></a>
       </div>
       <% if j === (ll / 2) || j === ll %>
       </div>
