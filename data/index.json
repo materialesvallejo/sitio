@@ -30,9 +30,9 @@
   "contact": {
     "title": "Contacto",
     "subtitle": {
-      "opens": "Estamos abiertos, márcamos y dínos en que te podemos ayudar.",
+      "opens": "Estamos abiertos, márcanos y dínos en que te podemos ayudar.",
       "lunch": "Estamos en la comida, envíanos un mensaje y nos pondremos en contacto al regresar.",
-      "closes": "Estamos cerrados por el momento, envísanos un mensaje y nos pondremos en contacto lo antes posible."
+      "closes": "La sucursal está, envíanos un mensaje y nos pondremos en contacto lo antes posible."
     }
   }
 }
