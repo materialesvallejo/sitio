@@ -12,11 +12,11 @@ layout: simple
     <p class="ma0 mb2 f1 fw4 lh15 gray"><%= error.subtitle %></p>
     <% error.actions.each_with_index do |button, b| %>
       <% if button.is_primary_button %>
-      <a class="db dib-ns center w8 <% if b == 0 %>mb1<% end %> mb0-ns pv05 mr1-ns lato white fw4 no-underline tc bg-blue br0125" href="<%= button.link %>">
+      <a class="db dib-ns center w8 <% if b == 0 %>mb1<% end %> mb0-ns pv1 ph15 mr1-ns lato white fw7 no-underline tc bg-blue br0125" href="<%= button.link %>">
         <%= button.title %>
       </a>
       <% else %>
-        <a class="db dib-ns center <% if b == 0 %>mb1<% end %> w8 pv05 lato dark-gray fw4 no-underline tc ba b--dark-gray br0125" href="<%= button.link %><%= data.contact.email %>"><%= button.title %></a>
+        <a class="db dib-ns center <% if b == 0 %>mb1<% end %> w8 pv1 ph15 lato dark-gray fw7 no-underline tc ba b--dark-gray br0125" href="<%= button.link %><%= data.contact.email %>"><%= button.title %></a>
       <% end %>
     <% end %>
   </div>
