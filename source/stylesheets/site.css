@@ -197,8 +197,14 @@ textarea:focus, input:focus, select:focus {
 .is-up { transform: rotate(180deg); }
 /* Fade */
 .js-fade { -webkit-transition: opacity 0.25s ease-in-out; transition: opacity 0.25s ease-in-out; }
+.js-load { -webkit-transition: opacity 0.5s ease-in-out; transition: opacity 0.5s ease-in-out; }
+.js-scale { -webkit-transition: transform 0.30s cubic-bezier(0.45, 0.25, 0.25, 1) 0.75s; transition: transform 0.30s cubic-bezier(0.45, 0.25, 0.25, 1) 0.75s; }
+.is-tiny { transform: scale(0); }
+.is-normal { transform: scale(1); }
 .is-visible { opacity: 1; }
 .is-hidden { opacity: 0; }
+.is-offset { transform: translateY(1rem); }
+.is-set { transform: translateY(0); }
 /*
 
   MEDIA QUERIES
