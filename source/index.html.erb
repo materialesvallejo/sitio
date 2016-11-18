@@ -7,6 +7,8 @@ layout: main
   <%# Hero %>
   <%# Config %>
   <% hero = data.index.hero %>
+  <% anchor_one = "" %>
+  <% anchor_two = "" %>
   <%# End %>
   <section class="pv8 ph15 pv16-ns ph2-m cover bg-center" style="background-image: url(<%= hero.image.path %>)">
       <header class="mw18 mw28-ns center lato tc white">
@@ -15,12 +17,17 @@ layout: main
       </header>
       <div class="tc">
         <% hero.buttons.each_with_index do |button, b| %>
+          <% if b === 0 %>
+            <% anchor_one = button.link %>
+          <% else %>
+            <% anchor_two = button.link %>
+          <% end %>
           <% if button.is_primary %>
-            <a class="db dib-ns center w8 w-auto-ns pv1 ph15  <% if b == 0 %>mb1<% end %> mb0-ns mr1-ns lato white fw7 no-underline tc bg-blue hover-bg-dark-blue br0125 button" href="#<%= button.link %>">
+            <a class="scroll db dib-ns center w8 w-auto-ns pv1 ph15  <% if b == 0 %>mb1<% end %> mb0-ns mr1-ns lato white fw7 no-underline tc bg-blue hover-bg-dark-blue br0125 button" href="#<%= button.link %>">
               <%= button.title %>
             </a>
           <% else %>
-            <a class="db dib-ns center w8 pv1 ph15 <% if b == 0 %>mb1<% end %> lato white fw7 no-underline tc ba b--white br0125" href="#<%= button.link %>"><%= button.title %></a>
+            <a class="scroll db dib-ns center w8 pv1 ph15 <% if b == 0 %>mb1<% end %> lato white fw7 no-underline tc ba b--white br0125" href="#<%= button.link %>"><%= button.title %></a>
           <% end %>
         <% end %>
       </div>
@@ -37,7 +44,7 @@ layout: main
   <% end %>
   <% pc = 0 %>
   <%# End %>
-  <section id="products" class="pv4 bb b--light-gray">
+  <section id="<%= anchor_one %>" class="pv4 bb b--light-gray">
     <header class="mw18 mw28-ns center lato tc ph15 ph2-m mb3">
       <h1 class="ma0 mb1 f15 fw4 lh01 dark-gray"><%= data.index.products.title %></h1>
       <p class="ma0 f1 fw4 lh15 gray"><%= data.index.products.subtitle %></p>
@@ -103,7 +110,7 @@ layout: main
   <%# Config %>
   <% sl = data.services.length - 1 %>
   <%# End %>
-  <section id="services" class="pv4 ph15 ph2-m ph0-l bb b--light-gray">
+  <section class="pv4 ph15 ph2-m ph0-l bb b--light-gray">
     <header class="mw18 center lato tc mb3">
       <h1 class="ma0 mb1 f15 fw4 lh01 dark-gray"><%= data.index.services.title %></h1>
       <p class="ma0 f1 fw4 lh15 gray"><%= data.index.services.subtitle %></p>
@@ -125,7 +132,7 @@ layout: main
     </div>
   </section>
   <%# Contact %>
-  <section class="pv4 ph15">
+  <section id="<%= anchor_two %>" class="pv4 ph15">
     <header class="mw18 center lato tc mb4">
       <h1 class="ma0 mb1 f15 fw4 lh01 dark-gray"><%= data.index.contact.title %></h1>
       <p class="js-subtitle ma0 f1 fw4 lh15 gray"><%= data.index.contact.subtitle.opens %></p>
