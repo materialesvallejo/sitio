@@ -8,22 +8,22 @@ layout: main
   <%# Config %>
   <% hero = data.index.hero %>
   <%# End %>
-  <section class="pv8 ph15 ph2-m cover bg-center" style="background-image: url(<%= hero.image.path %>)">
-    <header class="mw18 mw28-ns center lato tc white">
-      <h1 class="ma0 mb1 f15 f2-ns fw4 lh01"><%= hero.title %></h1>
-      <p class="ma0 mb2 f1 fw4 lh15"><%= hero.subtitle %></p>
-    </header>
-    <div class="tc">
-      <% hero.buttons.each_with_index do |button, b| %>
-        <% if button.is_primary %>
-          <a class="db dib-ns center w8 <% if b == 0 %>mb1<% end %> mb0-ns pv05 mr1-ns lato white fw7 no-underline tc bg-blue br0125" href="#<%= button.link %>">
-            <%= button.title %>
-          </a>
-        <% else %>
-          <a class="db dib-ns center <% if b == 0 %>mb1<% end %> w8 pv05 lato white fw7 no-underline tc ba b--white br0125" href="#<%= button.link %>"><%= button.title %></a>
+  <section class="pv8 ph15 pv16-ns ph2-m cover bg-center" style="background-image: url(<%= hero.image.path %>)">
+      <header class="mw18 mw28-ns center lato tc white">
+        <h1 class="ma0 mb1 f15 fw4 lh01"><%= hero.title %></h1>
+        <p class="ma0 mb2 f1 fw4 lh15"><%= hero.subtitle %></p>
+      </header>
+      <div class="tc">
+        <% hero.buttons.each_with_index do |button, b| %>
+          <% if button.is_primary %>
+            <a class="db dib-ns center w8 w-auto-ns pv1 ph15  <% if b == 0 %>mb1<% end %> mb0-ns mr1-ns lato white fw7 no-underline tc bg-blue br0125" href="#<%= button.link %>">
+              <%= button.title %>
+            </a>
+          <% else %>
+            <a class="db dib-ns center w8 pv1 ph15 <% if b == 0 %>mb1<% end %> lato white fw7 no-underline tc ba b--white br0125" href="#<%= button.link %>"><%= button.title %></a>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
   </section>
   <%# Products %>
   <%# Config %>
@@ -37,7 +37,7 @@ layout: main
   <% end %>
   <% pc = 0 %>
   <%# End %>
-  <section id="products" class="pv3 bb b--light-gray">
+  <section id="products" class="pv4 pv8-ns bb b--light-gray">
     <header class="mw18 mw28-ns center lato tc ph15 ph2-m mb3">
       <h1 class="ma0 mb1 f15 fw4 lh01 dark-gray"><%= data.index.products.title %></h1>
       <p class="ma0 f1 fw4 lh15 gray"><%= data.index.products.subtitle %></p>
@@ -45,7 +45,7 @@ layout: main
     <nav>
       <ul class="mw645 center ma0 ph15 ph2-m pb2 overflow-x-auto overflow-scrolling scrollbar-dn nowrap list">
         <% categories.each_with_index do |category, c| %>
-          <li class="dib"><p class="js-category ma0 lato <% if c === 0 %>blue<% else %>gray<% end %> <% if c != cl %>mr2<% end %>"><%= category.name %></p></li>
+          <li class="dib"><a class="js-category dib ma0 lato <% if c === 0 %>blue<% else %>gray<% end %> <% if c != cl %>mr2<% end %> hover-blue link no-underline"><%= category.name %></a></li>
         <% end %>
       </ul>
     </nav>
@@ -103,7 +103,7 @@ layout: main
   <%# Config %>
   <% sl = data.services.length - 1 %>
   <%# End %>
-  <section id="services" class="pv3 ph15 ph2-m ph0-l bb b--light-gray">
+  <section id="services" class="pv4 pv8-ns ph15 ph2-m ph0-l bb b--light-gray">
     <header class="mw18 center lato tc mb3">
       <h1 class="ma0 mb1 f15 fw4 lh01 dark-gray"><%= data.index.services.title %></h1>
       <p class="ma0 f1 fw4 lh15 gray"><%= data.index.services.subtitle %></p>
@@ -125,7 +125,7 @@ layout: main
     </div>
   </section>
   <%# Contact %>
-  <section class="pv3 ph15">
+  <section class="pv4 pv8-ns ph15">
     <header class="mw18 center lato tc mb3">
       <h1 class="ma0 mb1 f15 fw4 lh01 dark-gray"><%= data.index.contact.title %></h1>
       <p class="ma0 f1 fw4 lh15 gray"><%= data.index.contact.subtitle.opens %></p>
