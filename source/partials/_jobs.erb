@@ -11,7 +11,7 @@
 <%# End %>
 <%# Content %>
 <% if available_jobs > 0 %>
-  <section class="pv3 ph15 bt b--light-gray">
+  <section class="pv8 ph15 bt b--light-gray">
     <header class="mw18 mw28-ns center lato tc">
       <h1 class="ma0 mb1 f15 fw4 lh01"><%= data.jobs.banner.title %></h1>
       <% if available_jobs === 1 %>
@@ -21,15 +21,9 @@
       <% end %>
     </header>
     <% if available_jobs === 1 %>
-      <%# ### %>
-      <%# HREF PENDING %>
-      <%# ### %>
-      <a class="db center w8 pv05 lato white fw7 tc bg-blue br0125 no-underline" href="/empleos"><%= data.jobs.banner.buttons.single %></a>
+      <a class="db center w8 pv05 lato white fw7 tc hover-bg-dark-blue button br0125 bg-blue no-underline" href="/empleos/<%= pretty_url available_job.title %>"><%= data.jobs.banner.buttons.single %></a>
     <% else %>
-      <%# ### %>
-      <%# HREF PENDING %>
-      <%# ### %>
-      <a class="db center w8 pv05 lato white fw7 tc bg-blue br0125 no-underline" href="/empleos"><%= data.jobs.banner.buttons.multiple %></a>
+      <a class="db center w8 pv1 ph1 lato white fw7 tc bg-blue hover-bg-dark-blue br0125 button no-underline" href="/empleos"><%= data.jobs.banner.buttons.multiple %></a>
     <% end %>
   </section>
 <% end %>
