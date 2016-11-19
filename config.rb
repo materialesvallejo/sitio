@@ -36,6 +36,8 @@ data.jobs.list.each do |job|
     end
   else
     ignore "/empleos/index.html"
+    ignore "/empleos/application.html"
+    ignore "/empleos/detail.html"
     ignore "/aplicacion-enviada.html"
   end
 end
