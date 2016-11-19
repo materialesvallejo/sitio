@@ -312,10 +312,10 @@ function navAction(status) {
   const $button = document.getElementById('nav-action');
   //  Set button to "Closed" / "Lunch" status
   if (status === "Closed" || status === "Lunch") {
-    $button.classList.toggle('b--green');
-    $button.classList.toggle('b--blue');
-    $button.classList.toggle('green');
-    $button.classList.toggle('blue');
+    $button.classList.toggle('bg-green');
+    $button.classList.toggle('bg-blue');
+    $button.classList.toggle('hover-bg-dark-green');
+    $button.classList.toggle('hover-bg-dark-blue');
     $button.href = "<%= data.contact.button.closes.href %><%= data.contact.email %>";
     $button.innerHTML = "<%= data.contact.button.closes.title %>";
   }
