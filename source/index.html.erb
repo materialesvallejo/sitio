@@ -10,10 +10,10 @@ layout: main
   <% anchor_one = "" %>
   <% anchor_two = "" %>
   <%# End %>
-  <section class="pv8 ph15 pv16-ns ph2-m cover bg-center" style="background-image: url(<%= hero.image.path %>)">
+  <section class="pv8 ph1_5 pv16-ns ph2-m cover bg-center" style="background-image: url(<%= hero.image.path %>)">
       <header class="mw18 mw28-ns center lato tc white">
         <h1 class="ma0 mb1 f15 fw4 lh01"><%= hero.title %></h1>
-        <p class="ma0 mb2 f1 fw4 lh15"><%= hero.subtitle %></p>
+        <p class="ma0 mb2 f1 fw4 lh1_5"><%= hero.subtitle %></p>
       </header>
       <div class="tc">
         <% hero.buttons.each_with_index do |button, b| %>
@@ -23,11 +23,11 @@ layout: main
             <% anchor_two = button.link %>
           <% end %>
           <% if button.is_primary %>
-            <a class="scroll db dib-ns center w8 w-auto-ns pv1 ph15  <% if b == 0 %>mb1<% end %> mb0-ns mr1-ns lato white fw7 no-underline tc bg-blue hover-bg-dark-blue br0125 button" href="#<%= button.link %>">
+            <a class="scroll db dib-ns center w8 pv1 ph1_5  <% if b == 0 %>mb1<% end %> mb0-ns mr1-ns lato white fw7 no-underline tc bg-blue hover-bg-dark-blue br0125 button" href="#<%= button.link %>">
               <%= button.title %>
             </a>
           <% else %>
-            <a class="scroll db dib-ns center w8 pv1 ph15 <% if b == 0 %>mb1<% end %> lato white fw7 no-underline tc ba b--white br0125" href="#<%= button.link %>"><%= button.title %></a>
+            <a class="scroll db dib-ns center w8 pv1 ph1_5 <% if b == 0 %>mb1<% end %> lato white fw7 no-underline tc ba b--white br0125" href="#<%= button.link %>"><%= button.title %></a>
           <% end %>
         <% end %>
       </div>
@@ -45,28 +45,28 @@ layout: main
   <% pc = 0 %>
   <%# End %>
   <section id="<%= anchor_one %>" class="pv4 bb b--light-gray">
-    <header class="mw18 mw28-ns center lato tc ph15 ph2-m mb3">
+    <header class="mw18 mw28-ns center lato tc ph1_5 ph2-m mb3">
       <h1 class="ma0 mb1 f15 fw4 lh01 dark-gray"><%= data.index.products.title %></h1>
-      <p class="ma0 f1 fw4 lh15 gray"><%= data.index.products.subtitle %></p>
+      <p class="ma0 f1 fw4 lh1_5 gray"><%= data.index.products.subtitle %></p>
     </header>
     <nav>
-      <ul class="mw645 center ma0 ph15 ph2-m pb2 overflow-x-auto overflow-scrolling scrollbar-dn nowrap list">
+      <ul class="mw64_5 center ma0 ph1_5 ph2-m pb3 overflow-x-auto overflow-scrolling scrollbar-dn nowrap list">
         <% categories.each_with_index do |category, c| %>
           <li class="dib"><a class="js-category dib ma0 lato <% if c === 0 %>blue<% else %>gray<% end %> <% if c != cl %>mr2<% end %> hover-blue link no-underline"><%= category.name %></a></li>
         <% end %>
       </ul>
     </nav>
-    <div class="relative mw645 center overflow-hidden-l">
+    <div class="relative mw64_5 center overflow-hidden-l">
       <div class="dn db-l absolute left-0 z-1 w4 h20 bg-white-to-fade"></div>
       <div class="dn db-l absolute right-0 z-1 w4 h20 bg-fade-to-white"></div>
-      <div id="carrusel" class="ph15 ph2-m overflow-x-auto overflow-scrolling scrollbar-dn nowrap">
+      <div id="carrusel" class="ph1_5 ph2-m overflow-x-auto overflow-y-hidden overflow-scrolling scrollbar-dn nowrap">
         <% categories.each do |category| %>
           <% category.products.each do |product| %>
             <% pc = pc + 1 %>
             <article class="js-card dib w15 h20 <% if pc != pl %>mr2<% end %> bg-white ba b--light-gray br0125 pointer" data-category="<%= category.name.downcase %>">
-              <header class="relative mh15 mt15 pb2">
+              <header class="relative mh1_5 mt1_5 pb2">
                 <%= image_tag "icons/flecha.svg", :class => "js-rotate is-down absolute top-1 right-0" %>
-                <h2 class="ma0 mb05 lato f1 fw4 silver"><%= product.brand %></h2>
+                <h2 class="ma0 mb0_5 lato f1 fw4 silver"><%= product.brand %></h2>
                 <h1 class="js-test ma0 lato f1 fw4 dark-gray"><%= product.name %></h1>
               </header>
               <div class="relative">
@@ -74,14 +74,14 @@ layout: main
                   <img class="pb2" src="<%= product.image.path %>">
                 </div>
                 <div class="js-fade is-hidden absolute top-0 ws-normal">
-                  <ul class="ma0 pa0 mh15 mb15 list">
+                  <ul class="ma0 pa0 mh1_5 mb1_5 list">
                     <%# Product Info %>
                     <%# Config %>
                     <% sl = product.info.length - 1 %>
                     <%# End %>
                     <% product.info.each_with_index do |section, s| %>
                       <li>
-                        <p class="ma0 mb05 lato gray"><%= section.title %></p>
+                        <p class="ma0 mb0_5 lato gray"><%= section.title %></p>
                       </li>
                       <li class="<% if s != sl %>mb1<% end %>">
                         <ul class="ma0 pa0 list">
@@ -110,20 +110,20 @@ layout: main
   <%# Config %>
   <% sl = data.services.length - 1 %>
   <%# End %>
-  <section class="pv4 ph15 ph2-m ph0-l bb b--light-gray">
+  <section class="pv4 ph1_5 ph2-m ph0-l bb b--light-gray">
     <header class="mw18 center lato tc mb3">
       <h1 class="ma0 mb1 f15 fw4 lh01 dark-gray"><%= data.index.services.title %></h1>
-      <p class="ma0 f1 fw4 lh15 gray"><%= data.index.services.subtitle %></p>
+      <p class="ma0 f1 fw4 lh1_5 gray"><%= data.index.services.subtitle %></p>
     </header>
-    <div class="mw18 mw425-ns center ma0 pa0 cf">
+    <div class="mw18 mw42_5-ns center ma0 pa0 cf">
       <% data.services.each_with_index do |service, s| %>
         <% if s === 0 || s === ((sl / 2).floor - 1) %>
         <div class="cf <% if s === 0 %>mb2-ns<% end %>">
         <% end %>
           <div class="fl-ns w-50-ns <% if s != sl %>mb2<% end %> <% if s % 2 === 0 %>pr2-ns<% else %><% end %>">
             <%= image_tag "#{ service.icon.path }", :class => "db ma0", :alt => "#{ service.icon.alt }", :style => "width: 48px; height: 48px;" %>
-            <h3 class="dib ma0 mb05 lato f1 fw4 dark-gray"><%= service.name %></h3>
-            <p class="ma0 lato f1 fw4 lh15 gray"><%= service.description %></p>
+            <h3 class="dib ma0 mb0_5 lato f1 fw4 dark-gray"><%= service.name %></h3>
+            <p class="ma0 lato f1 fw4 lh1_5 gray"><%= service.description %></p>
           </div>
         <% if s === (sl / 2) || s === sl %>
         </div>
@@ -132,10 +132,10 @@ layout: main
     </div>
   </section>
   <%# Contact %>
-  <section id="<%= anchor_two %>" class="pv4 ph15">
+  <section id="<%= anchor_two %>" class="pv4 ph1_5">
     <header class="mw18 center lato tc mb4">
       <h1 class="ma0 mb1 f15 fw4 lh01 dark-gray"><%= data.index.contact.title %></h1>
-      <p class="js-subtitle ma0 f1 fw4 lh15 gray"><%= data.index.contact.subtitle.opens %></p>
+      <p class="js-subtitle ma0 f1 fw4 lh1_5 gray"><%= data.index.contact.subtitle.opens %></p>
     </header>
     <%= partial "partials/contact" %>
   </section>
