@@ -15,7 +15,9 @@
     <%= yield %>
     <%= partial "partials/mobile" %>
     <%= partial "partials/footer" %>
+    <!-- build:js build/javascripts/all.min.js -->
     <%= javascript_include_tag :all %>
     <%= javascript_include_tag :scroll %>
+    <!-- endbuild -->
   </body>
 </html>
