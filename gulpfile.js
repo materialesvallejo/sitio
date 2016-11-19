@@ -1,48 +1,40 @@
 var gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
-    cssmin = require('gulp-cssmin'),
+    concat = require('gulp-concat');
+    cssmin = require('gulp-css'),
+    transpile = require('gulp-es6-transpiler'),
     uglify = require('gulp-uglify'),
+    del = require('del'),
     gzip = require('gulp-gzip'),
     svgmin = require('gulp-svgmin'),
     imagemin = require('gulp-imagemin'),
+    // useref = require('gulp-useref');
     sitemap = require('gulp-sitemap');
 
-//  Minify and compress .html
-gulp.task('markdown', function(){
+gulp.task('markup', function(){
   gulp.src('build/**/*.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('build/'))
+  .pipe(htmlmin())
+  .pipe(gulp.dest('build/'))
+})
+
+gulp.task('styles', function(){
+  gulp.src(['build/stylesheets/tachyons.css', 'build/stylesheets/site.css'])
+  .pipe(concat('site.css'))
+  .pipe(cssmin())
+  .pipe(gulp.dest('build/stylesheets'))
 });
 
-//  Minify and compress .css
-gulp.task('styles', function() {
-  gulp.src('build/estilos/*.css')
-    .pipe(cssmin())
-    .pipe(gzip())
-    .pipe(gulp.dest('build/estilos'));
+gulp.task('scripts', function(){
+  gulp.src('build/javascripts/all.js')
+  .pipe(uglify())
+  .pipe(gulp.dest('build/javascripts'))
 });
 
-//  Minify and compress .js
-gulp.task('scripts', function () {
-  gulp.src('build/javascript/*.js')
-    .pipe(uglify())
-    .pipe(gzip())
-    .pipe(gulp.dest('build/javascript'))
-});
-
-//  Minify SVG
-gulp.task('svg', function () {
-    return gulp.src('build/images/**/*.svg')
-        .pipe(svgmin())
-        .pipe(gulp.dest('build/images'));
-});
-
-//  Optimize images
-gulp.task('images', () =>
-  gulp.src('build/imagenes/**/*')
+gulp.task('images', function(){
+  gulp.src('build/images/**/*')
     .pipe(imagemin({ progressive: true }))
     .pipe(gulp.dest('build/images'))
-);
+});
 
 //  Generate sitemap
 gulp.task('sitemap', function() {
@@ -55,5 +47,10 @@ gulp.task('sitemap', function() {
   .pipe(gulp.dest('./build'));
 });
 
+//  Delete unused files
+gulp.task('delete', function(){
+  return del.sync(['build/stylesheets/tachyons.css']);
+});
+
 // Run previously declared tasks on `gulp`
-gulp.task('build', ['markdown', 'styles', 'scripts', 'svg', 'images', 'sitemap']);
+gulp.task('build', ['markup', 'styles', 'scripts', 'images', 'sitemap']);
