@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "Materiales para Tu Obra",
-    "subtitle": "Encuentra los materiales que necesitas y obtén servicios personalizados de un concesionario Construrama.",
+    "subtitle": "Las mejores marcas en materiales para construcción a tu domicilio, obra, o negocio en menos de 24 horas.",
     "image": {
       "path": "images/index/portada.jpg",
       "alt": "Tarimas de blocks de cemento."
@@ -21,18 +21,18 @@
   },
   "products": {
     "title": "Materiales",
-    "subtitle": "Encuentra las mejores marcas en materiales para construcción."
+    "subtitle": "Encuentra las mejores marcas mas reconocidas del país en materiales para construcción."
   },
   "services": {
     "title": "Servicios",
-    "subtitle": "Recibe atención especializada para mayoristas, menudistas y constructoras."
+    "subtitle": "Obtén servicios personalizados para particulares, mayoristas y constructoras."
   },
   "contact": {
     "title": "Contacto",
     "subtitle": {
-      "opens": "Estamos abiertos, márcanos y dínos en que te podemos ayudar.",
-      "lunch": "Estamos en la comida, envíanos un mensaje y nos pondremos en contacto al regresar.",
-      "closes": "La sucursal está, envíanos un mensaje y nos pondremos en contacto lo antes posible."
+      "opens": "La sucursal está abierta, márcanos y dínos en que te podemos servir.",
+      "lunch": "Salimos a la comida, envíanos un mensaje y nos pondremos en contacto al regresar.",
+      "closes": "La sucursal está cerrada, envíanos un mensaje y nos pondremos en contacto lo antes posible."
     }
   }
 }
