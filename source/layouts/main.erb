@@ -7,7 +7,6 @@
     <%= partial "partials/meta" %>
     <title><%= current_page.data.title %></title>
     <link href='//fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
-    <%= stylesheet_link_tag :tachyons %>
     <%= stylesheet_link_tag :site %>
   </head>
   <body class="js-load is-hidden relative">
@@ -15,9 +14,7 @@
     <%= yield %>
     <%= partial "partials/mobile" %>
     <%= partial "partials/footer" %>
-    <!-- build:js build/javascripts/all.min.js -->
     <%= javascript_include_tag :all %>
     <%= javascript_include_tag :scroll %>
-    <!-- endbuild -->
   </body>
 </html>
