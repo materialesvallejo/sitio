@@ -31,8 +31,8 @@ end
 data.jobs.list.each do |job|
   if $jobs > 0
     if job.is_published
-      proxy "/empleos/#{ I18n.transliterate(job.title).downcase.strip.gsub(' ', '-') }", "/empleos/detail.html", :locals => { :job => job }, :ignore => true
-      proxy "/empleos/#{ I18n.transliterate(job.title).downcase.strip.gsub(' ', '-') }/aplicacion", "/empleos/application.html", :locals => { :job => job }, :ignore => true
+      proxy "/empleos/#{ I18n.transliterate(job.title).downcase.strip.gsub(' ', '-') }/index.html", "/empleos/detail.html", :locals => { :job => job }, :ignore => true
+      proxy "/empleos/#{ I18n.transliterate(job.title).downcase.strip.gsub(' ', '-') }/aplicacion/index.html", "/empleos/application.html", :locals => { :job => job }, :ignore => true
     end
   else
     ignore "/empleos/index.html"
