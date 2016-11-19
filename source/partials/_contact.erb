@@ -1,88 +1,60 @@
-<div class="mw18 center">
-  <a class="db cf mb1 pv1 no-underline" href="tel:<%= pretty_number data.contact.number %>">
-    <table class="w-100">
-      <tbody>
-        <tr>
-          <td class="tc w-20">
-            <%= image_tag "icons/telefono.svg", :class => "v-mid" %>
-          </td>
-          <td class="w-80">
-            <p class="ma0 lato fw4 f1 dark-gray"><%= data.contact.number %></p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </a>
-  <a class="db cf mb1 pv1 no-underline" href="mailto:<%= data.contact.email %>">
-    <table class="w-100">
-      <tbody>
-        <tr>
-          <td class="tc w-20">
-            <%= image_tag "icons/email.svg", :class => "v-mid" %>
-          </td>
-          <td class="w-80">
-            <p class="ma0 lato fw4 f1 dark-gray"><%= data.contact.email %></p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </a>
-  <a class="db cf mw20 center pv1">
-    <table class="w-100">
-      <tbody>
-        <tr>
-          <td class="tc v-top w-20">
-            <%= image_tag "icons/direccion.svg" %>
-          </td>
-          <td class="w-80">
-            <ul class="list ma0 pa0">
-              <li><p class="ma0 mb025 lato mb025 fw4 f1 dark-gray"><%= data.contact.address.street %></p></li>
-              <li><p class="ma0 mb025 lato mb025 fw4 f1 dark-gray"><%= data.contact.address.sector %></p></li>
-              <li><p class="ma0 lato fw4 f1 dark-gray"><%= data.contact.address.city %>, <%= data.contact.address.state %> <%= data.contact.address.zip_code %></p></li>
-            </ul>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </a>
-  <a class="db cf mw20 center mb1 pv1">
-    <table class="w-100">
-      <tbody>
-        <tr>
-          <td class="tc v-top w-20">
-            <%= image_tag "icons/horarios.svg" %>
-          </td>
-          <td class="w-80">
-            <%# Office Schedules %>
-            <%# Config %>
-            <% sl = data.contact.schedules.length - 1 %>
-            <%# End %>
-            <% data.contact.schedules.each do |schedule| %>
-              <ul class="list ma0 pa0">
-                <li><p class="ma0 mb05 lato fw4 f1 gray"><%= schedule.title %></p></li>
-                <% if schedule.is_full_day %>
-                  <li>
-                    <p class="ma0 lato mb025 fw4 f1 dark-gray">
-                      <%= pretty_hour schedule.hours.opens %> — <%= pretty_hour schedule.hours.lunch %>
-                    </p>
-                  </li>
-                  <li>
-                    <p class="ma0 lato mb1 fw4 f1 dark-gray">
-                      <%= pretty_hour schedule.hours.afternoon %> — <%= pretty_hour schedule.hours.closes %>
-                    </p>
-                  </li>
-                <% else %>
-                  <li>
-                    <p class="ma0 lato mb025 fw4 f1 dark-gray">
-                      <%= pretty_hour schedule.hours.opens %> — <%= pretty_hour schedule.hours.closes %>
-                    </p>
-                  </li>
-                <% end %>
-              </ul>
-            <% end %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </a>
+<div class="mw18 mw425-ns center cf">
+  <div class="fl-ns w-50-ns">
+    <div class="mb2 mb1-ns">
+      <div class="mb2">
+        <h2 class="ma0 mb05 fw4 f1 lato dark-gray"><%= data.contact.section.phone.title %></h2>
+        <a class="js-phone lato blue hover-dark-blue no-underline" href="tel:<%= pretty_number data.contact.number %>"><%= data.contact.number %></a>
+      </div>
+      <div class="">
+        <h2 class="ma0 mb05 fw4 f1 lato dark-gray"><%= data.contact.section.email.title %></h2>
+        <a class="lato blue hover-dark-blue no-underline" href="mailto:<%= data.contact.email %>"><%= data.contact.email %></a>
+      </div>
+    </div>
+    <%# Config %>
+    <% weekdays = data.contact.schedules[0].hours %>
+    <% saturdays = data.contact.schedules[1].hours %>
+    <%# End %>
+    <div class="mb2 mb0-ns">
+      <div class="mb2">
+        <h2 class="ma0 mb05 fw4 f1 lato dark-gray"><%= data.contact.section.address.title %></h2>
+        <p class="ma0 mb025 lato gray f1 fw4 lh125"><%= data.contact.address.street %></p>
+        <p class="ma0 mb025 lato gray f1 fw4 lh125"><%= data.contact.address.sector %></p>
+        <p class="ma0 mb025 lato gray f1 fw4 lh125"><%= data.contact.address.city %>, <%= data.contact.address.state %> <%= data.contact.address.zip_code %></p>
+      </div>
+      <div class="">
+        <h2 class="js-schedule ma0 mb05 fw4 f1 lato dark-gray"><%= data.contact.section.schedule.opens %></h2>
+        <p class="ma0 mb1 lato gray f1 fw4 lh125">Entre semana de <%= pretty_hour weekdays.opens %> a <%= pretty_hour weekdays.lunch %></br>y de <%= pretty_hour weekdays.afternoon %> a <%= pretty_hour weekdays.closes %>.</p>
+        <p class="ma0 lato gray f1 fw4">Sábados de <%= pretty_hour saturdays.opens %> a <%= pretty_hour saturdays.closes %>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="fl-ns w-50-ns">
+    <div id="map" class="h25 w-100 mb1 bg-almost-white"></div>
+    <a class="lato blue hover-dark-blue f1 fw4 no-underline" href="<%= data.contact.address.url %>" target="_blank"><%= data.contact.maps %></a>
+  </div>
+ <script>
+   /*
+
+     Google Maps
+
+   */
+   //  Google Map initializer function
+   function initMap() {
+     var materialesVallejo = {lat: 25.864598, lng: -97.515169};
+     var map = new google.maps.Map(document.getElementById('map'), {
+       zoom: 14,
+       center: materialesVallejo,
+       zoomControl: true,
+       scrollWheel: false,
+       disableDefaultUI: true
+     });
+     var marker = new google.maps.Marker({
+       position: materialesVallejo,
+       map: map
+     });
+   }
+ </script>
+ <script async defer
+ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRMxhHqi5eSFxss3GWjhxE_Xb6C2S6JFQ&callback=initMap">
+ </script>
 </div>
