@@ -22,7 +22,7 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
-    eventmachine (1.2.0.1)
+    eventmachine (1.2.1)
     execjs (2.7.0)
     fast_blank (1.0.0)
     fastimage (2.0.1)
@@ -106,6 +106,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport (>= 3.1)
   middleman (>= 4.0.0)
   middleman-livereload
   tzinfo-data
