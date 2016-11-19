@@ -1,20 +1,28 @@
 /*
+
   GENERAL
+
 */
 html { -webkit-font-smoothing: antialiased; }
 a { outline: none; }
 a:focus {  }
 /*
+
   HEIGHT
+
 */
 .h20 { height: 20rem; }
 /*
+
   OVERFLOW
+
 */
 .overflow-scrolling { -webkit-overflow-scrolling: touch; }
 .scrollbar-dn::-webkit-scrollbar { display: none; }
 /*
+
   SPACING
+
 */
 .mv4 { margin-top: 4rem; margin-bottom: 4rem; }
 .mh15 { margin-right: 1.5rem; margin-left: 1.5rem; }
@@ -52,11 +60,15 @@ a:focus {  }
 .pl05 { padding-left: 0.5rem; }
 .pl2 { padding-left: 2rem; }
 /*
+
   FONT FAMILY
+
 */
 .lato { font-family: 'Lato'; }
 /*
+
   FONT SIZE
+
 */
 .f075 { font-size: 0.75rem; }
 .f0875 { font-size: 0.875rem; }
@@ -64,12 +76,16 @@ a:focus {  }
 .f15 { font-size: 1.5rem; }
 .f2 { font-size: 2rem; }
 /*
+
   LINE HEIGHT
+
 */
 .lh125 { line-height: 1.25; }
 .lh15 { line-height: 1.5; }
 /*
+
   LETTER SPACING
+  
 */
 .tracking075 { letter-spacing: 0.075rem; }
 /*
