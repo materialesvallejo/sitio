@@ -1,12 +1,12 @@
-<div class="mw18 mw425-ns center cf">
+<div class="mw18 mw42_5-ns center cf">
   <div class="fl-ns w-50-ns">
     <div class="mb2 mb1-ns">
       <div class="mb2">
-        <h2 class="ma0 mb05 fw4 f1 lato dark-gray"><%= data.contact.section.phone.title %></h2>
+        <h2 class="ma0 mb0_5 fw4 f1 lato dark-gray"><%= data.contact.section.phone.title %></h2>
         <a class="js-phone lato blue hover-dark-blue no-underline" href="tel:<%= pretty_number data.contact.number %>"><%= data.contact.number %></a>
       </div>
       <div class="">
-        <h2 class="ma0 mb05 fw4 f1 lato dark-gray"><%= data.contact.section.email.title %></h2>
+        <h2 class="ma0 mb0_5 fw4 f1 lato dark-gray"><%= data.contact.section.email.title %></h2>
         <a class="lato blue hover-dark-blue no-underline" href="mailto:<%= data.contact.email %>"><%= data.contact.email %></a>
       </div>
     </div>
@@ -16,14 +16,14 @@
     <%# End %>
     <div class="mb2 mb0-ns">
       <div class="mb2">
-        <h2 class="ma0 mb05 fw4 f1 lato dark-gray"><%= data.contact.section.address.title %></h2>
-        <p class="ma0 mb025 lato gray f1 fw4 lh125"><%= data.contact.address.street %></p>
-        <p class="ma0 mb025 lato gray f1 fw4 lh125"><%= data.contact.address.sector %></p>
-        <p class="ma0 mb025 lato gray f1 fw4 lh125"><%= data.contact.address.city %>, <%= data.contact.address.state %> <%= data.contact.address.zip_code %></p>
+        <h2 class="ma0 mb0_5 fw4 f1 lato dark-gray"><%= data.contact.section.address.title %></h2>
+        <p class="ma0 mb0_25 lato gray f1 fw4 lh1_25"><%= data.contact.address.street %></p>
+        <p class="ma0 mb0_25 lato gray f1 fw4 lh1_25"><%= data.contact.address.sector %></p>
+        <p class="ma0 mb0_25 lato gray f1 fw4 lh1_25"><%= data.contact.address.city %>, <%= data.contact.address.state %> <%= data.contact.address.zip_code %></p>
       </div>
       <div class="">
-        <h2 class="js-schedule ma0 mb05 fw4 f1 lato dark-gray"><%= data.contact.section.schedule.opens %></h2>
-        <p class="ma0 mb1 lato gray f1 fw4 lh125">Entre semana de <%= pretty_hour weekdays.opens %> a <%= pretty_hour weekdays.lunch %></br>y de <%= pretty_hour weekdays.afternoon %> a <%= pretty_hour weekdays.closes %>.</p>
+        <h2 class="js-schedule ma0 mb0_5 fw4 f1 lato dark-gray"><%= data.contact.section.schedule.opens %></h2>
+        <p class="ma0 mb1 lato gray f1 fw4 lh1_25">Entre semana de <%= pretty_hour weekdays.opens %> a <%= pretty_hour weekdays.lunch %></br>y de <%= pretty_hour weekdays.afternoon %> a <%= pretty_hour weekdays.closes %>.</p>
         <p class="ma0 lato gray f1 fw4">Sábados de <%= pretty_hour saturdays.opens %> a <%= pretty_hour saturdays.closes %>.</p>
       </div>
     </div>
