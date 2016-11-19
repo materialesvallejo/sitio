@@ -51,10 +51,5 @@ gulp.task('sitemap', function() {
   .pipe(gulp.dest('./build'));
 });
 
-//  Delete unused files
-gulp.task('delete', function(){
-  return del.sync(['build/stylesheets/tachyons.css']);
-});
-
 // Run previously declared tasks on `gulp`
 gulp.task('build', ['markup', 'styles', 'scripts', 'images', 'sitemap']);
