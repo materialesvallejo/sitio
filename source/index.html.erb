@@ -56,53 +56,65 @@ layout: main
         <% end %>
       </ul>
     </nav>
-    <div class="relative mw64_5 center overflow-hidden-l">
-      <div class="dn db-l absolute left-0 z-1 w4 h20 bg-white-to-fade"></div>
-      <div class="dn db-l absolute right-0 z-1 w4 h20 bg-fade-to-white"></div>
-      <div id="carrusel" class="ph1_5 ph2-m overflow-x-auto overflow-y-hidden overflow-scrolling scrollbar-dn nowrap">
-        <% categories.each do |category| %>
-          <% category.products.each do |product| %>
-            <% pc = pc + 1 %>
-            <article class="js-card dib w15 h20 <% if pc != pl %>mr2<% end %> bg-white ba b--light-gray br0125 pointer" data-category="<%= category.name.downcase %>">
-              <header class="relative mh1_5 mt1_5 pb2">
-                <%= image_tag "icons/flecha.svg", :class => "js-rotate is-down absolute top-1 right-0" %>
-                <h2 class="ma0 mb0_5 lato f1 fw4 silver"><%= product.brand %></h2>
-                <h1 class="js-test ma0 lato f1 fw4 dark-gray"><%= product.name %></h1>
-              </header>
-              <div class="relative">
-                <div class="js-fade is-visible absolute top-0 o-1">
-                  <img class="pb2" src="<%= product.image.path %>">
+    <div class="relative mw64_5 center">
+      <div class="js-previous dn db-l absolute top-45 left-4 z-2 pointer">
+        <svg viewBox="0 0 100 100" width="32px" height="32px">
+          <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="js-change is-idle"></path>
+        </svg>
+      </div>
+      <div class="js-next dn db-l absolute top-45 right-4 z-2 pointer">
+        <svg viewBox="0 0 100 100" width="32px" height="32px">
+          <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="js-change is-active" transform="translate(100, 100) rotate(180) "></path>
+        </svg>
+      </div>
+      <div class="overflow-hidden-l">
+        <div class="dn db-l absolute left-0 z-1 w4 h20 bg-white-to-fade"></div>
+        <div class="dn db-l absolute right-0 z-1 w4 h20 bg-fade-to-white"></div>
+        <div id="carrusel" class="ph1_5 ph2-m overflow-x-auto overflow-y-hidden overflow-scrolling scrollbar-dn nowrap">
+          <% categories.each do |category| %>
+            <% category.products.each do |product| %>
+              <% pc = pc + 1 %>
+              <article class="js-card dib w15 h20 <% if pc != pl %>mr2<% end %> bg-white ba b--light-gray br0125 pointer" data-category="<%= category.name.downcase %>">
+                <header class="relative mh1_5 mt1_5 pb2">
+                  <%= image_tag "icons/flecha.svg", :class => "js-rotate is-down absolute top-1 right-0" %>
+                  <h2 class="ma0 mb0_5 lato f1 fw4 silver"><%= product.brand %></h2>
+                  <h1 class="js-test ma0 lato f1 fw4 dark-gray"><%= product.name %></h1>
+                </header>
+                <div class="relative">
+                  <div class="js-fade is-visible absolute top-0 o-1">
+                    <img class="pb2" src="<%= product.image.path %>">
+                  </div>
+                  <div class="js-fade is-hidden absolute top-0 ws-normal">
+                    <ul class="ma0 pa0 mh1_5 mb1_5 list">
+                      <%# Product Info %>
+                      <%# Config %>
+                      <% sl = product.info.length - 1 %>
+                      <%# End %>
+                      <% product.info.each_with_index do |section, s| %>
+                        <li>
+                          <p class="ma0 mb0_5 lato gray"><%= section.title %></p>
+                        </li>
+                        <li class="<% if s != sl %>mb1<% end %>">
+                          <ul class="ma0 pa0 list">
+                            <%# Info Details %>
+                            <%# Config %>
+                            <% dl = section.details.length - 1 %>
+                            <%# End %>
+                            <% section.details.each_with_index do |point, i|  %>
+                              <li class="dib <% if i != dl %>mr1<% end %> <% if i %><% end %>">
+                                <p class="ma0 lato dark-gray"><%= point %></p>
+                              </li>
+                            <% end %>
+                          </ul>
+                        </li>
+                      <% end %>
+                    </ul>
+                  </div>
                 </div>
-                <div class="js-fade is-hidden absolute top-0 ws-normal">
-                  <ul class="ma0 pa0 mh1_5 mb1_5 list">
-                    <%# Product Info %>
-                    <%# Config %>
-                    <% sl = product.info.length - 1 %>
-                    <%# End %>
-                    <% product.info.each_with_index do |section, s| %>
-                      <li>
-                        <p class="ma0 mb0_5 lato gray"><%= section.title %></p>
-                      </li>
-                      <li class="<% if s != sl %>mb1<% end %>">
-                        <ul class="ma0 pa0 list">
-                          <%# Info Details %>
-                          <%# Config %>
-                          <% dl = section.details.length - 1 %>
-                          <%# End %>
-                          <% section.details.each_with_index do |point, i|  %>
-                            <li class="dib <% if i != dl %>mr1<% end %> <% if i %><% end %>">
-                              <p class="ma0 lato dark-gray"><%= point %></p>
-                            </li>
-                          <% end %>
-                        </ul>
-                      </li>
-                    <% end %>
-                  </ul>
-                </div>
-              </div>
-            </article>
+              </article>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </section>
