@@ -52,7 +52,7 @@ layout: main
     <nav>
       <ul class="mw64_5 center ma0 ph1_5 ph2-m pb3 overflow-x-auto overflow-scrolling scrollbar-dn nowrap list">
         <% categories.each_with_index do |category, c| %>
-          <li class="dib"><a class="js-category dib ma0 lato <% if c === 0 %>blue<% else %>gray<% end %> <% if c != cl %>mr2<% end %> hover-blue link no-underline"><%= category.name %></a></li>
+          <li class="dib"><a class="js-category dib ma0 lato <% if c === 0 %>blue<% else %>gray<% end %> <% if c != cl %>mr2<% end %> hover-blue link no-underline pointer"><%= category.name %></a></li>
         <% end %>
       </ul>
     </nav>
@@ -70,7 +70,7 @@ layout: main
       <div class="overflow-hidden-l">
         <div class="dn db-l absolute left-0 z-1 w4 h20 bg-white-to-fade"></div>
         <div class="dn db-l absolute right-0 z-1 w4 h20 bg-fade-to-white"></div>
-        <div id="carrusel" class="ph1_5 ph2-m overflow-x-auto overflow-y-hidden overflow-scrolling scrollbar-dn nowrap">
+        <div id="carrusel" class="ph1_5 ph2-m overflow-x-auto overflow-y-hidden overflow-x-hidden-l overflow-scrolling scrollbar-dn nowrap">
           <% categories.each do |category| %>
             <% category.products.each do |product| %>
               <% pc = pc + 1 %>
