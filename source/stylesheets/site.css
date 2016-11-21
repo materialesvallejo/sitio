@@ -706,8 +706,14 @@ img { max-width: 100%; }
 .bg-red { background-color: #eb5757; }
 .bg-orange { background-color: #f2994a; }
 /* Gradient backgrounds */
-.bg-white-to-fade { background-image: linear-gradient(to right, white, transparent); }
-.bg-fade-to-white { background-image: linear-gradient(to right, transparent, white); }
+.bg-white-to-fade {
+  background-image: -webkit-linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+  background-image: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+.bg-fade-to-white {
+  background-image: -webkit-linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+  background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+}
 /*
 
    SKINS:PSEUDO
