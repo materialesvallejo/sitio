@@ -154,7 +154,7 @@ function hasClass($node, cls) {
 }
 /*
 
-  Navigation Update
+  Dynamic Content
   (Cross-browser compatible)
 
 */
@@ -224,6 +224,10 @@ function setCurrentDayType() {
 <%# End %>
 function setCurrentDayTime() {
   var status = "Closed";
+  //  If status is Rest Day, return "Closed"
+  if (setCurrentDayType() === "Rest Day") {
+    return status;
+  }
   //  Hours of Operation
   const fullDayOpen = (((<%= weekdays.opens %> <= currentTime) && (currentTime < <%= weekdays.lunch %>)) || ((<%= weekdays.afternoon %> <= currentTime) && (currentTime < <%= weekdays.closes %>)));
   const fullDayLunch = ((<%= weekdays.lunch %> <= currentTime) && (currentTime < <%= weekdays.afternoon %>))
