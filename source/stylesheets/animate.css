@@ -17,3 +17,7 @@
 .is-hidden { opacity: 0; }
 .is-offset { transform: translateY(1rem); }
 .is-set { transform: translateY(0); }
+/* Change */
+.js-change { -webkit-transition: fill 0.25s ease-in-out; transition: fill 0.25 ease-in-out; }
+.is-active { fill: #0080ff; }
+.is-idle { fill: #bdbdbd; }
