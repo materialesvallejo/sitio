@@ -12,7 +12,7 @@ var gulp = require('gulp'),
 gulp.task('markup', function(){
   gulp.src('build/**/*.html')
   .pipe(htmlmin())
-  .pipe(gulp.dest('build/'))
+  .pipe(gulp.dest('build'))
 })
 
 //  Concatenate site.css + animate.css -> site.css
@@ -46,7 +46,7 @@ gulp.task('sitemap', function() {
     read: false
   })
   .pipe(sitemap({
-    siteUrl: 'https://www.tymforest.com'
+    siteUrl: 'https://materialesvallejo.com'
   }))
   .pipe(gulp.dest('./build'));
 });
