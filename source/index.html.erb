@@ -1,6 +1,7 @@
 ---
 title: Materiales para Construcción — Materiales Vallejo
 layout: main
+dynamic: true
 ---
 <%# Content %>
 <main class="ptc">
@@ -23,11 +24,11 @@ layout: main
             <% anchor_two = button.link %>
           <% end %>
           <% if button.is_primary %>
-            <a class="scroll db dib-ns center w8 pv1 ph1_5  <% if b == 0 %>mb1<% end %> mb0-ns mr1-ns lato white fw7 no-underline tc bg-blue hover-bg-dark-blue br0125 button" href="#<%= button.link %>">
+            <a id="test" class="db dib-ns center w8 pv1 ph1_5  <% if b == 0 %>mb1<% end %> mb0-ns mr1-ns lato white fw7 no-underline tc bg-blue hover-bg-dark-blue br0125 button" href="#<%= anchor_one %>">
               <%= button.title %>
             </a>
           <% else %>
-            <a class="scroll db dib-ns center w8 pv1 ph1_5 <% if b == 0 %>mb1<% end %> lato white fw7 no-underline tc ba b--white br0125" href="#<%= button.link %>"><%= button.title %></a>
+            <a id="secondary" class="db dib-ns center w8 pv1 ph1_5 <% if b == 0 %>mb1<% end %> lato white fw7 no-underline tc ba b--white br0125" href="#<%= anchor_two %>"><%= button.title %></a>
           <% end %>
         <% end %>
       </div>
@@ -52,29 +53,29 @@ layout: main
     <nav>
       <ul class="mw64_5 center ma0 ph1_5 ph2-m pb3 overflow-x-auto overflow-scrolling scrollbar-dn nowrap list">
         <% categories.each_with_index do |category, c| %>
-          <li class="dib"><a class="js-category dib ma0 lato <% if c === 0 %>blue<% else %>gray<% end %> <% if c != cl %>mr2<% end %> hover-blue link no-underline pointer"><%= category.name %></a></li>
+          <li class="dib"><a class="js-category dib ma0 lato <% if c === 0 %>blue<% else %>gray<% end %> <% if c != cl %>mr2<% end %> hover-blue link no-underline cursor-pointer"><%= category.name %></a></li>
         <% end %>
       </ul>
     </nav>
     <div class="relative mw64_5 center">
-      <div class="js-previous dn db-l absolute top-45 left-4 z-2 pointer">
+      <div class="js-previous dn db-l absolute top-45 left-4 z-2 cursor-auto">
         <svg viewBox="0 0 100 100" width="32px" height="32px">
-          <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="js-change is-idle"></path>
+          <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="js-change is-idle pe-none"></path>
         </svg>
       </div>
-      <div class="js-next dn db-l absolute top-45 right-4 z-2 pointer">
+      <div class="js-next dn db-l absolute top-45 right-4 z-2 cursor-pointer">
         <svg viewBox="0 0 100 100" width="32px" height="32px">
           <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="js-change is-active" transform="translate(100, 100) rotate(180) "></path>
         </svg>
       </div>
       <div class="overflow-hidden-l">
-        <div class="dn db-l absolute left-0 z-1 w4 h20 bg-white-to-fade"></div>
-        <div class="dn db-l absolute right-0 z-1 w4 h20 bg-fade-to-white"></div>
+        <div class="dn db-l absolute left-0 z-2 w4 h20 bg-white-to-fade"></div>
+        <div class="dn db-l absolute right-0 z-2 w4 h20 bg-fade-to-white"></div>
         <div id="carrusel" class="ph1_5 ph2-m overflow-x-auto overflow-y-hidden overflow-x-hidden-l overflow-scrolling scrollbar-dn nowrap">
           <% categories.each do |category| %>
             <% category.products.each do |product| %>
               <% pc = pc + 1 %>
-              <article class="js-card dib w15 h20 <% if pc != pl %>mr2<% end %> bg-white ba b--light-gray br0125 pointer" data-category="<%= category.name.downcase %>">
+              <article class="js-card dib w15 h20 <% if pc != pl %>mr2<% end %> bg-white ba b--light-gray br0125 cursor-pointer" data-category="<%= category.name.downcase %>">
                 <header class="relative mh1_5 mt1_5 pb2">
                   <%= image_tag "icons/flecha.svg", :class => "js-rotate is-down absolute top-1 right-0" %>
                   <h2 class="ma0 mb0_5 lato f1 fw4 silver"><%= product.brand %></h2>
