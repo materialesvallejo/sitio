@@ -26,10 +26,12 @@ gulp.task('styles', function(){
   .pipe(gulp.dest('build/stylesheets'))
 });
 
-//  Minify all.js
+//  Minify javascripts
 gulp.task('scripts', function(){
-  gulp.src('build/javascripts/all.js')
+  gulp.src(['build/javascripts/all.js', 'build/javascripts/dynamic.js'])
   .pipe(uglify())
+  .pipe(gulp.dest('build/javascripts'))
+  .pipe(gzip())
   .pipe(gulp.dest('build/javascripts'))
 });
 
