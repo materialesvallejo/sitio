@@ -1027,7 +1027,10 @@ img { max-width: 100%; }
 /* Can combine this with overflow-hidden to make background images grow on hover
  * even if you are using background-size: cover */
 /* Add pointer on hover */
-.pointer { cursor: pointer; }
+.cursor-pointer { cursor: pointer; };
+.cursor-auto { cursor: auto; };
+.pe-auto { pointer-events: auto };
+.pe-none { pointer-events: none };
 /*
    Add shadow on hover.
 
