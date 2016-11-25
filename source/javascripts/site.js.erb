@@ -163,7 +163,7 @@ function updateDynamicContent(officeStatus, dayType) {
     if (currentPath === '/') {
       contactSection("Lunch");
     }
-    if (currentPath === '/empresa') {
+    if (currentPath.includes('empresa')) {
       aboutContent("Lunch");
     }
     if (currentPath.includes('aplicacion')) {
