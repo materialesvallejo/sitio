@@ -5,10 +5,15 @@
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
     <%= partial "partials/meta" %>
-    <title><%= current_page.data.title %></title>
+    <title>
+      <% if locals[:job] %>
+        <%= current_page.data.title %> — <%= job.title %>
+      <% else %>
+        <%= current_page.data.title %>
+      <% end %>
+    </title>
     <link href='//fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag :site %>
-    <%= stylesheet_link_tag :animate %>
   </head>
   <body class="js-load is-hidden relative">
     <%= partial "partials/nav" %>
