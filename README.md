@@ -1,4 +1,4 @@
-Sitio Web de Materiales Vallejo—
+# Sitio Web de Materiales Vallejo
 
 Hemos desarrollado este sitio con las siguientes herramientas:
 + [Middleman](https://middlemanapp.com/)
@@ -12,7 +12,7 @@ Si tienes alguna pregunta puedes mandarle un correo a Claudio Vallejo a hola@cla
 
 ---
 
-Materiales Vallejo's Business Website—
+# Materiales Vallejo's Business Website—
 
 We've developed this site with the following tools:
 + [Middleman](https://middlemanapp.com/)
